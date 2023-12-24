@@ -1,37 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+//libs
 import {useEffect, useState}from 'react'
+import {Routes, Route} from 'react-router-dom';
+
+//react components
+import { Navigation } from './routes/navigation/navigation.component';
+import { Home } from './routes/home/home.component';
+import {Shop} from './routes/shop/shop.component';
+
 function App() {
-  const [data, setData] = useState(null);
-  useEffect(() => {
+  //const [data, setData] = useState(null);
+  //useEffect(() => {
   /*{data.map((elem)=> <div>{elem}</div>)}*/
-    fetch("/api")
+ /*   fetch("/api")
     .then((res) => res.json())
     .then((data) => {setData(data.message); console.log(data.message);});
-  })
+  })*/
 
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <h1>
-             <div>{data}</div>
-          </h1>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+     <Routes>
+      <Route path='/' element = {<Navigation/>}>
+      <Route index element={<Home/>}/>
+      <Route path='/home' element = {<Home/>}/> 
+      <Route path='/shop' element = {<Shop/>}/>
+
+      </Route>
+     </Routes>
+  )
 }
 
 export default App;

@@ -1,4 +1,4 @@
-import {getItemData} from '../../api/get_data.jsx'
+import {getItemData} from '../../api/get_data/get_data.mongodb'
 
 export const Shop = () => {
     return (

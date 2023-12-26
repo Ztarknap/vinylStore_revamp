@@ -3,11 +3,12 @@ import './category-item.styles.scss'
 export const CategoryItem = ({category}) => {
     const {name, img} = category;
     return (
-    <span className='category-container'>
-        {name}
-        <span className='background-image'>
-        <img src = {img} alt = {`${name}`}></img>
-        </span>
+    <div className='category-container'>
+        
+        <div className='background-image' style={{backgroundImage:`url(${img})`}}>
+ 
+        </div>
+        <div className='category-body-container'><h1>{name}</h1> </div>
 
-    </span>)
+    </div>)
 }

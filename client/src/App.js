@@ -4,6 +4,7 @@ import './App.css';
 import {useEffect, useState}from 'react'
 import {Routes, Route} from 'react-router-dom';
 
+
 //react components
 import { Navigation } from './routes/navigation/navigation.component';
 import { Home } from './routes/home/home.component';
@@ -11,8 +12,23 @@ import {Shop} from './routes/shop/shop.component';
 import { Contact } from './routes/contact/contact.component';
 import { SignIn } from './routes/sign_in/sign_in.component';
 import { SignUp } from './routes/sign_up/sign_up_component';
+import {onAuthStateChangedListener} from './utils/firebase.util';
+import {setCurrentUser} from './store/user/user.action';
+//redux
+import { useDispatch } from 'react-redux';
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  useEffect(()=> {
+    const unsubscribe = onAuthStateChangedListener((user) => {
+        dispatch(setCurrentUser(user));
+ 
+    });
+        return unsubscribe;
+  }); 
+
   return (
      <Routes>
       <Route path='/' element = {<Navigation/>}>

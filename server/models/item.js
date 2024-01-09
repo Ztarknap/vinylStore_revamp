@@ -18,9 +18,9 @@ let itemSchema = new Schema({
         type: String,
         default: '99999'   
     },
-    releaseDate: {
-        type: Date,
-        default: '01.01.1990'
+    releaseDate:  {  
+        type: Number,
+        default: 1990
     },
     genre: {
         type: String,

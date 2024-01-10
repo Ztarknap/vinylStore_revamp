@@ -1,9 +1,10 @@
 import {getItemData} from '../../api/get_data/get_data.mongodb'
 import { useEffect } from 'react'
 import { useState } from 'react';
-
+import { Routes, Route } from 'react-router-dom';
+import { CategoriesMain } from './categories-main.component';
 export const Shop = () => {
-    console.log('albumData11easdsadsad'   );
+    /*console.log('albumData11easdsadsad'   );
     const [data, setData] =  useState(null);
     useEffect(() => {
          
@@ -20,5 +21,12 @@ export const Shop = () => {
         <button onClick={getItemData}> get data</button>
         
         </div>
+    )*/
+    return (
+        <Routes>
+            <Route index element={<CategoriesMain/>}/>
+             
+        </Routes>
+
     )
 }

@@ -3,12 +3,14 @@ import {Outlet} from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import './navigation.styles.scss'
 import { useSelector } from 'react-redux'
-import {ReactComponent as ShoppingIcon} from '../../assets/shopping-cart-outline-svgrepo-com.svg'
- 
+
+import {CartIcon} from '../../components/cart-icon/cart-icon.component'
+import {CartDropdown} from '../../components/cart/cart-dropdown.component'
 import { signOutUser } from '../../utils/firebase.util'
 
 export const Navigation = () => {
     const current_user = useSelector((state) => state.user.currentUser);
+    const isCartOpen = useSelector((state) => state.cart.isCartOpen);
     return(
         <Fragment>
         <div className='navigation-bar'>
@@ -20,7 +22,8 @@ export const Navigation = () => {
           
          <Link to='/sign_up' className='navlink'> Sign up</Link>
          <Link to='/contact' className='navlink'> Contact information </Link>
-         <ShoppingIcon className='shop-cart' onClick={console.log('opened')}></ShoppingIcon>
+         <CartIcon/>  
+         {isCartOpen && <CartDropdown/>}
          </div>
         <Outlet/>
          </Fragment> 

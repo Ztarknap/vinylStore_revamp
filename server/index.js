@@ -2,8 +2,9 @@ const express = require("express");
 const path = require('path');
 
 const mongoose = require('mongoose');
-const itemModel = require('./models/item.js');
+
 const itemRoute = require('./routes/items.js');
+const purchaseRoute = require('./routes/purchase.js')
 
 const app = express();
 
@@ -11,7 +12,7 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json({extended: true}));
 app.use('/api/items', itemRoute);
-
+app.use('/api/purchase', purchaseRoute);
 
 app.get("/api", (req,res) => {
     console.log('/api getNew')

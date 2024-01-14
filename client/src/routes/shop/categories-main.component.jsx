@@ -16,15 +16,12 @@ export const CategoriesMain = () => {
       .then((data) => { console.log(data); dispatch(setCategories(data));});
        
       }, []);
-      console.log('Object.keys(categoriesData)', Object.keys(categoriesData));
-            console.log(' categorr', categoriesData);
       return (
         <Fragment>
            
             {  
              genresList.map((genre) => 
              { 
-              console.log(categoriesData, 'C-D'); 
               return( 
               <div> 
                 <span className='genreTitle'> 
@@ -37,7 +34,7 @@ export const CategoriesMain = () => {
               {
                 return (
                  
-                  <ItemCard key = {obj.id} item = {obj} ></ItemCard>
+                  <ItemCard key = {obj._id} item = {obj} ></ItemCard>
                   
                 )
               }

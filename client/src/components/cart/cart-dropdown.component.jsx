@@ -7,7 +7,7 @@ import { CartItem } from '../cart-item/cart-item.component'
 import { Checkout } from '../../routes/checkout/checkout.component'
 export const CartDropdown =() => {
     const cartItems = useSelector((state) => state.cart.cartItems )
-    console.log('cartItems', cartItems)
+    
     return (
         <div className="cart-dropdown">
             <div className='col'>

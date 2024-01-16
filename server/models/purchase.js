@@ -3,13 +3,23 @@ const Schema = mongoose.Schema;
 
 
 let purchaseSchema = new Schema({
-    itemList: {
+    itemList: [{
         type: String,
         required: true
-    },
+    }],
     user: {
-        type: String,
-        required: true
+        email: {
+            type: String,
+            required: true
+        },
+        name: {
+            type: String,
+            required: true
+        },
+        code: {
+            type: String,
+            default: ''
+        }
     },
     deliveryAdress: {
         type: String,

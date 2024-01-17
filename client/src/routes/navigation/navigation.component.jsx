@@ -22,6 +22,9 @@ export const Navigation = () => {
           
          <Link to='/sign_up' className='navlink'> Sign up</Link>
          <Link to='/contact' className='navlink'> Contact information </Link>
+         {(current_user?
+            (<Link to='/purchaseHistory' className='navlink'> Purchase history</Link>):
+            '')}
          <CartIcon/>  
          {isCartOpen && <CartDropdown/>}
          </div>

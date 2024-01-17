@@ -2,9 +2,13 @@ import { useSelector } from "react-redux"
 import { useState,useEffect } from "react"
 import { CartItem } from "../../components/cart-item/cart-item.component"
 
-
-//ploho, zasunut v useEffect s sobitiem
  
+const PurchaseAlert = ({data}) => {
+     
+    return(
+    <div className="alert alert-dark purchaseAlert" value> {data} </div>
+    )
+}
 
 export const Checkout = () => {
 
@@ -30,15 +34,22 @@ export const Checkout = () => {
     
     return (
     <div>
+        {resp && <PurchaseAlert data = {resp.deliveryAdress}/>}
         {cartItems.map((item) => {return <CartItem key={item._id} item = {item}/>})} 
         <div>
         <button onClick={ 
         async () => 
         {
          const res = await fetch("/api/purchase/makePurchase", 
-         {method: "POST",
-          body: JSON.stringify(dataSendMake())})
+         {
+            method: "POST",
+         headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dataSendMake()),})
          const data = await res.json();
+         console.log('got answer ', data);
+         <div class="alert alert-light" role="alert">
+         Succesfully bought, address - {data.deliveryAdress}
+         </div>
          setResp(data);
          }}>Make a purchase</button>
         </div>

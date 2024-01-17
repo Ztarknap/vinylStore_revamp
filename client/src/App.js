@@ -15,8 +15,10 @@ import { SignUp } from './routes/sign_up/sign_up_component';
 import { Checkout } from './routes/checkout/checkout.component';
 import {onAuthStateChangedListener} from './utils/firebase.util';
 import {setCurrentUser} from './store/user/user.action';
+import { PurchaseHistory } from './routes/purchase-history/purchase-history.component';
 //redux
 import { useDispatch } from 'react-redux';
+ 
 
 function App() {
 
@@ -40,6 +42,7 @@ function App() {
       <Route path='/sign_in' element = {<SignIn/>}/>
       <Route path='/sign_up' element = {<SignUp/>}/>
       <Route path='/checkout' element ={<Checkout/>}/>
+      <Route path='/purchaseHistory' element = {<PurchaseHistory/>}/>
 
       </Route>
      </Routes>

@@ -10,6 +10,13 @@ router.get('/', async (req,res) => {
     res.send(items);
 })
 
+
+router.get('/:genre/:name', async (req,res) => {
+    res.send('got query');
+})
+
+
+
 router.get('/search/:id', async (req,res) => {
     let id = req.params.id;
     let item = await itemModel.findById(_id = id);

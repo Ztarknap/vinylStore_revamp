@@ -3,6 +3,7 @@ import { ItemCard } from '../../components/item-card/item-card.component';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategories } from '../../store/categories/categories.action';
 import './categories-main.styles.scss'
+
  
 
 export const CategoriesMain = () => {
@@ -18,7 +19,6 @@ export const CategoriesMain = () => {
       }, []);
       return (
         <Fragment>
-           
             {  
              genresList.map((genre) => 
              { 
@@ -44,9 +44,8 @@ export const CategoriesMain = () => {
              </div>) 
                
             })
+           
           }
-            
-          
   
           
         </Fragment>

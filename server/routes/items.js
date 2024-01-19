@@ -11,7 +11,7 @@ router.get('/', async (req,res) => {
 })
 
 
-router.get('/:genre/:name/:band', async (req,res) => {
+router.get('search/:genre/:name/:band', async (req,res) => {
     console.log('search ', req.body);
     res.send('got query');
 })

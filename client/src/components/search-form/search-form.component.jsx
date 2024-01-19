@@ -4,8 +4,8 @@ export const SearchForm = () => {
     const navigate = useNavigate();
     const handleSubmit = async(event) => {
         const [genre, name, band] = event.target;
-        navigate("/menu", { replace: true });
-        alert(genre.value, ' ', name.value, ' ', band.value);
+        navigate("/catalogue", { replace: true, state: {genre: genre.value, name: name.value, band: band.value} });
+         
     }
     return (
     <div>

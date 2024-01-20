@@ -11,19 +11,30 @@ router.get('/', async (req,res) => {
 })
 
 
-router.get('search/:genre/:name/:band', async (req,res) => {
-    console.log('search ', req.body);
-    res.send('got query');
+router.get('/search/',   async (req,res) => {
+    const filter = {};
+ 
+    for (const property in req.query) {
+        if (req.query[property])
+        {
+            filter[property] = req.query[property];
+        } 
+    }
+    
+    let items = await itemModel.find(filter);
+     
+    res.send(items);
+
+     
 })
 
 
 
-router.get('/search/:id', async (req,res) => {
-    let id = req.params.id;
-    let item = await itemModel.findById(_id = id);
-    res.send(item);
+/*router.get('/search/:id', async (req,res) => {
+    console.log(req);
+     
 })
-
+*/
 router.post('/create', async (req, res) => {
     console.log('post');
     console.log(req.body);

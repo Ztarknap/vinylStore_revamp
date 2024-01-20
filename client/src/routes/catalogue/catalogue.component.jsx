@@ -1,23 +1,28 @@
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
+import { useEffect } from "react";
 
 export const Catalogue = () => {
-    const [catalogueData, setCatalogueData] = useState();
+    const [catalogueData, setCatalogueData] = useState([]);
+    const location = useLocation()
     const getItemDataAPI =  async (obj) => {
          
         const searchParams = new URLSearchParams(obj);
-        const res = await fetch("/api/search/"+ searchParams, { headers: {'Content-Type': 'application/json'}});
+        const res = await fetch("/api/items/search?"+ searchParams, { headers: {'Content-Type': 'application/json'}});
         const data = await res.json();
+        console.log('data ', data);
         setCatalogueData(data);
          
     }
-    {console.log('catalogueData');}
-    {console.log(catalogueData)}
-    const location = useLocation()
-    getItemDataAPI(location.state);
+    useEffect(() => {
+        getItemDataAPI(location.state);
+        console.log('ctd ',catalogueData);
+    },[])
+     
+ 
     return(
         <div>
-        adadsa
+        {catalogueData.map((item) => {return (<div>{item.name}</div>)})}
         </div>
     )
 }

@@ -10,8 +10,8 @@ export const ItemCard = ( {item} ) => {
     return (
          
              
-        <div class='item-container '>
-        <div class='cover-container'>
+        <div className='item-container '>
+        <div className='cover-container'>
              
         <div className='background-image' style={{backgroundImage:`url(${image})`}}>
  

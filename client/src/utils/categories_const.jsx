@@ -6,13 +6,13 @@ export const categories = [
     },
     {
       id: 2,
-      name: 'Rap',
+      name: 'Hip_hop',
       img: 'https://vinyl.ru/upload/1c/pic_catalog/00-00058859/11.jpg'
 
     },
     {
       id: 3,
-      name: 'Classic',
+      name: 'Classical',
       img: 'https://vinyl.ru/upload/1c/pic_catalog/00-00059539/0.jpg'
     },
     {

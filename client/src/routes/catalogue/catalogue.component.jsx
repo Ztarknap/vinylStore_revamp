@@ -8,22 +8,17 @@ import {SearchForm} from "../../components/search-form/search-form.component"
 export const Catalogue = () => {
     const [catalogueData, setCatalogueData] = useState([]);
     const location = useLocation()
-    console.log(' location.state ', location.state);
     const getItemDataAPI =  async (obj) => {
-         
         const searchParams = new URLSearchParams(obj);
         const res = await fetch("/api/items/search?"+ searchParams, { headers: {'Content-Type': 'application/json'}});
         const data = await res.json();
-        console.log('data ', data);
-        console.log('searchParams ',obj);
         setCatalogueData(data);
          
     }
     useEffect(() => {
-        console.log(' location.state ', location.state);
+        console.log('useEffect');
         getItemDataAPI(location.state);
-        console.log('ctd ',catalogueData);
-    },[])
+    },[location.state])
      
  
     return(

@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export const SearchForm = () => {
     const navigate = useNavigate();
+    const location = useLocation()
     const handleSubmit = async(event) => {
+        event.preventDefault();
         const [genre, name, band] = event.target;
         navigate("/catalogue", { replace: true, state: {genre: genre.value, name: name.value, band: band.value} });
          

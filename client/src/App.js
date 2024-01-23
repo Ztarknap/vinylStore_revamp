@@ -17,6 +17,7 @@ import {onAuthStateChangedListener} from './utils/firebase.util';
 import {setCurrentUser} from './store/user/user.action';
 import { PurchaseHistory } from './routes/purchase-history/purchase-history.component';
 import { Catalogue } from './routes/catalogue/catalogue.component';
+import { ItemCardDetailed } from './routes/item-card-detailed/item-card-detailed.component';
 //redux
 import { useDispatch } from 'react-redux';
  
@@ -46,7 +47,7 @@ function App() {
       <Route path='/checkout' element ={<Checkout/>}/>
       <Route path='/purchaseHistory' element = {<PurchaseHistory/>}/>
       <Route path='/catalogue' element = {<Catalogue/>}/>
-
+      <Route path='/item_detail' element = {<ItemCardDetailed/>}/>
       </Route>
      </Routes>
   )

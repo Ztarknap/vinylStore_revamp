@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 
 const itemRoute = require('./routes/items.js');
 const purchaseRoute = require('./routes/purchase.js')
+const userRoute = require('./routes/user.js')
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json({extended: true}));
 app.use('/api/items', itemRoute);
 app.use('/api/purchase', purchaseRoute);
+app.use('/api/user', userRoute)
 
 app.get("/api", (req,res) => {
     console.log('/api getNew')

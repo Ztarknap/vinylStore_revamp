@@ -54,7 +54,7 @@ export const Checkout = () => {
          }}>Make a purchase</button>
         </div>
         <div className="form-group col-sm-3">
-        <label for="deliveryAdress"> Delivery adress</label> 
+        <label htmlFor="deliveryAdress"> Delivery adress</label> 
         <input type="text" id ="deliveryAdress" className="form-control"></input>
         </div>
     </div>)

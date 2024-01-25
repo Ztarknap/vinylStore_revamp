@@ -11,7 +11,7 @@ import { Home } from './routes/home/home.component';
 import {Shop} from './routes/shop/shop.component';
 import { Contact } from './routes/contact/contact.component';
 import { SignIn } from './routes/sign_in/sign_in.component';
-import { SignUp } from './routes/sign_up/sign_up_component';
+import { SignUp } from './routes/sign_up/sign_up.component';
 import { Checkout } from './routes/checkout/checkout.component';
 import {onAuthStateChangedListener} from './utils/firebase.util';
 import {setCurrentUser} from './store/user/user.action';

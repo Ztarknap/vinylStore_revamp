@@ -18,8 +18,8 @@ export const ItemCard = ( {item} ) => {
     return (
          
              
-        <div className='item-container' onClick={() => itemClickHandler()}>
-        <div className='cover-container'>
+        <div className='item-container'>
+        <div className='cover-container' onClick={() => itemClickHandler()}>
              
         <div className='background-image' style={{backgroundImage:`url(${image})`}}>
  

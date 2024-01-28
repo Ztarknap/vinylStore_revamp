@@ -10,6 +10,18 @@ export const SignIn = () => {
     const signIn = async(event) => {
         event.preventDefault();
         const [email, password] = event.target;
+        const obj = {
+            email: email.value,
+            password: password.value
+        }
+        let res = await fetch("api/user/signin", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(obj),
+            
+        });
+        const data = await res.json();
+        console.log('ret data ', data);
     }
 
     return (

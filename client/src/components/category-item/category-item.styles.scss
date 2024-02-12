@@ -1,3 +1,6 @@
+@import "../../utils/variables_scss.scss";
+
+
 .category-container {
     display: flex;
     flex-wrap: wrap;
@@ -6,11 +9,20 @@
     width: 30%;
     height: 250px;
     flex: 0 2 auto;
-    border: 1px solid black;
     margin-left: 10px;
     margin-right:10px;
     overflow:hidden;
-    
+    &:hover .background-image {
+        transform: scale(1.1);
+        transition:  2s all ease-in-out;
+          
+    }
+    &:hover   .category-body-container  
+    {
+            background-color: scale-color($ColorSecondary, $lightness: -25%);
+            transition: 220ms all ease-in-out;
+            opacity:1;
+        }
 }
 
 .background-image {
@@ -21,29 +33,30 @@
     overflow:hidden;
     background-size:cover;
     background-position: center;
-    &:hover {
-        transform: scale(1.1);
-        transition:  transform   6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-    }
-    
+ 
 }
 
  
 .category-body-container {
-        height: 90px;
+      height: 90px;
       padding: 0 25px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      border: 1px solid black;
-      background-color: white;
+      color:$ColorPrimary;
       opacity: 0.7;
       position: absolute;
+      background-color: $ColorSecondary;
+ 
     h1 {
         font-weight: bold;
         margin: 0 6px 0;
         font-size: 22px;
-        color: #4a4a4a;
+ 
+    }
+    &:hover   
+    {
+            background-color: scale-color($ColorSecondary, $lightness: -25%);
     }
 }

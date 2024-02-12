@@ -1,5 +1,6 @@
 import { Fragment } from "react"
 import { signInGoogle } from "../../utils/firebase.util"
+import "./sign_in.styles.scss"
 
 export const SignIn = () => {
 
@@ -28,13 +29,13 @@ export const SignIn = () => {
         <Fragment>
         <div>
         <form onSubmit={(event) => signIn(event)}>
-        <div>
+            <div>
             <label htmlFor="signinEmail">Email</label> 
-            <input type="email" id="signinEmail" name="email"></input>
+            <input type="email" id="signinEmail" name="email" className="input-field"></input>
             </div>
             <div>
             <label htmlFor="signinPwd">Password</label>
-            <input type="password" id="signinPwd" name="password"></input>
+            <input type="password" id="signinPwd" name="password" className="input-field"></input>
             </div>
         
         <button type="submit"> Sign in</button>

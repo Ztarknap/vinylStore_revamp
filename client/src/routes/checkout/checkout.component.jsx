@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux"
 import { useState,useEffect } from "react"
 import { CartItem } from "../../components/cart-item/cart-item.component"
-
+import "./checkout.styles.scss"
+import "../../style-common/elements.styles.scss"
  
 const PurchaseAlert = ({data}) => {
      
@@ -33,11 +34,14 @@ export const Checkout = () => {
     }
     
     return (
-    <div>
+    <div className="checkout-info">
         {resp && <PurchaseAlert data = {resp.deliveryAdress}/>}
         {cartItems.map((item) => {return <CartItem key={item._id} item = {item}/>})} 
         <div>
-        <button onClick={ 
+        <label htmlFor="deliveryAdress"> Delivery adress</label> 
+        <input type="text" id ="deliveryAdress" className="form-control"></input>
+        <div>
+        <button className="btn-common-primary" onClick={ 
         async () => 
         {
          const res = await fetch("/api/purchase/makePurchase", 
@@ -51,11 +55,8 @@ export const Checkout = () => {
          Succesfully bought, address - {data.deliveryAdress}
          </div>
          setResp(data);
-         }}>Make a purchase</button>
+         }}>Confirm</button>
         </div>
-        <div className="form-group col-sm-3">
-        <label htmlFor="deliveryAdress"> Delivery adress</label> 
-        <input type="text" id ="deliveryAdress" className="form-control"></input>
         </div>
     </div>)
 }

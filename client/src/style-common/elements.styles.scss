@@ -1,0 +1,29 @@
+@import "../utils/variables_scss.scss";
+
+.input-field-common {
+
+}
+
+
+.btn-common-primary {
+    display: block;
+    background-color: $ColorSecondary;
+    border-radius: .25rem;
+    box-sizing: border-box;
+    border: none;
+    width: 45%; 
+    margin: 0 auto;
+    margin-bottom: 10%;
+     
+    color: $ColorPrimary;
+    padding: 0;
+    &:focus {
+        box-shadow: 0 0 0 4px $ColorAdd;
+    };
+
+    &:hover {
+        background-color: scale-color($ColorSecondary, $lightness: -25%);
+    }
+
+    transition: 220ms all ease-in-out;
+}

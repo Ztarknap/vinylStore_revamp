@@ -11,7 +11,7 @@ export const CartDropdown =() => {
         <div className="cart-dropdown">
             <div className='col'>
             {cartItems.map((item) => {return <CartItem key={item._id} item = {item}/>})}</div>
-        <button> <Link to='/checkout' className='to-checkout'> To Checkout </Link></button>
+        <button id='btn-to-checkout' className='btn-common-primary'> <Link id='link-to-checkout' to='/checkout'> To Checkout </Link></button>
         </div>
     )
 }

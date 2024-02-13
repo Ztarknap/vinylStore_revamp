@@ -1,0 +1,12 @@
+@import "../../style-common/elements.styles.scss";
+
+
+.sign-up-group {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    .sign-up-btn {
+        margin-top:10%;
+    }
+}

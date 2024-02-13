@@ -1,3 +1,5 @@
+//for simpler access to localStorage  
+
 export const getToken = () => {
     return localStorage.getItem('token');
 }

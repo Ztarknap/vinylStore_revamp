@@ -13,9 +13,9 @@ export const SearchForm = () => {
     return (
     <div className="searchBlock">
         <form onSubmit={(event) => {handleSubmit(event)}}>
-        <input type="text" id='searchGenre' name='searchGenre' className="form-control searchField" placeholder="Genre"></input>
-        <input type="text" id='searchName' name='searchName' className="form-control searchField" placeholder="Album name"></input>
-        <input type="text" id='searchBand' name='searchBand' className="form-control searchField" placeholder="Band"></input>
+        <input type="text" id='searchGenre' name='searchGenre' className="form-control searchField input-field-primary" placeholder="Genre"></input>
+        <input type="text" id='searchName' name='searchName' className="form-control searchField input-field-primary" placeholder="Album name"></input>
+        <input type="text" id='searchBand' name='searchBand' className="form-control searchField input-field-primary" placeholder="Band"></input>
   
         <button type="submit" className="btn-common-primary">Find albums</button>
  

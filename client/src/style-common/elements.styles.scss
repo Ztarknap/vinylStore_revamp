@@ -1,7 +1,17 @@
 @import "../utils/variables_scss.scss";
 
-.input-field-common {
+//common styles 
 
+.input-field-primary {
+    width:100%;
+    margin-bottom:5%;
+    background-color: $ColorSecondary;
+    &:focus {
+        outline-style:solid;
+        outline-color:transparent;
+        box-shadow: 0 0 0 4px $ColorAdd
+    }
+    transition: 220ms all ease-in-out;
 }
 
 

@@ -26,24 +26,20 @@ export const SignIn = () => {
     }
 
     return (
-        <Fragment>
-        <div>
-        <form onSubmit={(event) => signIn(event)}>
-            <div>
+         
+        <div className="sign-in-group">
+        <form onSubmit={(event) => signIn(event)} >
             <label htmlFor="signinEmail">Email</label> 
-            <input type="email" id="signinEmail" name="email" className="input-field"></input>
-            </div>
-            <div>
+            <input type="email" id="signinEmail" name="email" className="input-field form-control input-field-primary"></input>
+            
             <label htmlFor="signinPwd">Password</label>
-            <input type="password" id="signinPwd" name="password" className="input-field"></input>
+            <input type="password" id="signinPwd" name="password" className="input-field form-control input-field-primary"></input>
+            <div className="sign-in-btn">
+            <button type="submit" className="btn-common-primary"> Sign in</button>
+            <button onClick={signInGoogleWrap} className="btn-common-primary">Sign in with Google</button>
             </div>
-        
-        <button type="submit"> Sign in</button>
         </form>
         </div>
-        <div>
-        <button onClick={signInGoogleWrap}>Sign in with Google</button>
-        </div>
-        </Fragment>
+ 
     )
 }

@@ -1,7 +1,7 @@
 import { createAction } from "../../utils/reducer/reducer.utils"
 import { CART_ACTION_TYPES } from "./cart.types"
 
-
+//wrapper functions for actions
 export const addToCartWrap = (cartItems, itemToAdd) => {
     const existingCartItem = cartItems.find(
         (cartItem) => cartItem._id == itemToAdd._id)
@@ -39,8 +39,6 @@ export const removeFromCartWrap = (cartItems, itemToRemove) => {
 }
 
 export const addToCart = (cartItems, itemToAdd) => {
-    console.log('cartItems, ', cartItems, ' ', itemToAdd);
-    console.log('addToCartWr ', addToCartWrap(cartItems, itemToAdd));
     return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, addToCartWrap(cartItems, itemToAdd));
 }
 

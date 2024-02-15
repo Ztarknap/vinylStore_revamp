@@ -1,4 +1,3 @@
-import { Fragment, useEffect } from "react";
 import "./sign_up.styles.scss"
 
 export const SignUp = () => {

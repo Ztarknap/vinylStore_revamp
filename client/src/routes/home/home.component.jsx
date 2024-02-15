@@ -4,10 +4,7 @@ import {categories} from '../../utils/categories_const'
 import { SearchForm } from '../../components/search-form/search-form.component';
 
 export const Home = () => {
-    console.log("HOME!!!");
-     
-
-    
+   
 return (
     <Fragment>
     <SearchForm/>

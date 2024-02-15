@@ -1,4 +1,4 @@
-import { useContext, Fragment, useEffect } from 'react'
+import {  Fragment, useEffect } from 'react'
 import { ItemCard } from '../../components/item-card/item-card.component';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategories } from '../../store/categories/categories.action';

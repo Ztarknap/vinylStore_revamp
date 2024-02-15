@@ -1,4 +1,3 @@
-import { Fragment } from "react"
 import { signInGoogle } from "../../utils/firebase.util"
 import "./sign_in.styles.scss"
 

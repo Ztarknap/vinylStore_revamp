@@ -7,6 +7,7 @@ import {   useSelector } from 'react-redux'
 import {CartIcon} from '../../components/cart-icon/cart-icon.component'
 import {CartDropdown} from '../../components/cart/cart-dropdown.component'
 import { signOutUser } from '../../utils/firebase.util'
+import { getToken } from '../../utils/auth.util'
 
 export const Navigation = () => {
     const current_user = useSelector((state) => state.user.currentUser);
@@ -24,6 +25,7 @@ export const Navigation = () => {
           
          <Link to='/sign_up' className='navlink'> Sign up</Link>
          <Link to='/contact' className='navlink'> Contact information </Link>
+         {getToken()}
          {/*show purchase history if logged in*/}
          {(current_user?
             (<Link to='/purchaseHistory' className='navlink'> Purchase history</Link>):

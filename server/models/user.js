@@ -13,7 +13,14 @@ let userSchema = new Schema({
         required: [true, "Password is required"]
     }
 })
-
+//middleware for email validation
+userSchema.post('save', function(error, doc, next) {
+    if (error.name === 'MongoServerError' && error.code === 11000) {
+      next(new Error('Email already exists'));
+    } else {
+      next();
+    }
+  });
 
 const User = mongoose.model('User', (userSchema));
 

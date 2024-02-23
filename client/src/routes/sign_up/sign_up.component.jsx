@@ -1,9 +1,12 @@
 import "./sign_up.styles.scss"
-
+import { useNavigate } from "react-router-dom";
+import { setToken, getToken } from "../../utils/auth.util";
 export const SignUp = () => {
-
+    const navigate = useNavigate();
     const signupClickHandler = async (event) => {
         event.preventDefault();
+ 
+
         const [email, password] = event.target;
         const obj = {
             email: email.value,
@@ -20,6 +23,17 @@ export const SignUp = () => {
             }
             );
             const data = await res.json();
+            console.log('got the dataaa ', data)
+            if(data.status == 0) {
+                
+                setToken(data.token);
+                alert('Registration succesfull, redirecting...')
+                navigate("/home", { replace: true});
+            }
+            else if (data.status ==1) {
+                alert('Error - ' + data.message);
+                return;
+            }
             console.log('answer ', data);
 
          

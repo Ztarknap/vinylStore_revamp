@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt =  require('bcrypt');
-const jwt = require("jsonwebtoken");
 
 const userModel = require('../models/user.js');
+
+const createToken = require('../utils/auth.util');
+ 
 
 const handlErrorDB = (err) => {
     console.log('DB error');
@@ -15,8 +17,28 @@ router.post('/signup', async(req,res) => {
     let salt = await bcrypt.genSalt(10);
     let hashedPwd = await bcrypt.hash(req.body.password, salt)
     let newUser = new userModel({email: req.body.email, password: hashedPwd});
+    try { 
     let response = await newUser.save();
+    }
+    catch (error) {
+        console.log(error.message);
+        res.send(
+            {
+               status: 1,
+               message: error.message,
+               token: '' 
+            }
+        )
+        return;
+    }
     console.log('user created ' , hashedPwd,' ', response);
+    const token = createToken(response._id, response.email);
+    res.send(
+        {   status: 0,
+            message: "Signed up",
+            token: token
+        }
+    )
     res.send(response);
 
 })
@@ -32,14 +54,7 @@ router.post('/signin',async(req,res) => {
         let pwdCheck = await bcrypt.compare(req.body.password, userData[0].password ).catch(handlErrorDB);
         console.log(pwdCheck, ' res');
         if (pwdCheck) {
-            const token = jwt.sign(
-                {
-                    userId: userData._id,
-                    userEmail: userData.email
-                },
-                "RANDOM-TOKEN",
-                { expiresIn: "24h"}
-            );
+            const token = createToken(userData._id, userData.email)
             res.send(
                 {
                     message: "Signed in",

@@ -1,7 +1,11 @@
 import { signInGoogle } from "../../utils/firebase.util"
+import { setCurrentUser } from "../../store/user/user.action"
+import { useDispatch } from "react-redux"
+
 import "./sign_in.styles.scss"
 
 export const SignIn = () => {
+    const dispatch = useDispatch();
 
     const signInGoogleWrap = async() => {
         const {user} = await signInGoogle();
@@ -22,6 +26,17 @@ export const SignIn = () => {
         });
         const data = await res.json();
         console.log('ret data ', data);
+        if (data.status == 0) {
+          const currentUser = {
+            email: email.value,
+            token: data.token,
+            accessToken: null
+          } 
+          dispatch(setCurrentUser(currentUser));
+        }
+        alert(data.message);
+        
+         
     }
 
     return (

@@ -10,7 +10,7 @@ import { signOutUser } from '../../utils/firebase.util'
 import { getToken } from '../../utils/auth.util'
 
 export const Navigation = () => {
-    const current_user = useSelector((state) => state.user.currentUser);
+    const currentUserEmail = useSelector((state) => state.user.currentUserEmail);
     const isCartOpen = useSelector((state) => state.cart.isCartOpen);
     return(
         <Fragment>
@@ -19,15 +19,16 @@ export const Navigation = () => {
         <Link to='/home' className='navlink'> Home </Link>
          <Link to='/shop' className='navlink'> Browse</Link>
          {/*signout if logged, sign in if not */}
-         {(current_user? 
+         {(currentUserEmail? 
             (<Link onClick={signOutUser} className='navlink'> Sign Out </Link>):
             (<Link to='/sign_in' className='navlink'>  Sign in</Link>) )}
           
          <Link to='/sign_up' className='navlink'> Sign up</Link>
          <Link to='/contact' className='navlink'> Contact information </Link>
          {getToken()}
+         {currentUserEmail}
          {/*show purchase history if logged in*/}
-         {(current_user?
+         {(currentUserEmail?
             (<Link to='/purchaseHistory' className='navlink'> Purchase history</Link>):
             '')}
          <CartIcon/>  

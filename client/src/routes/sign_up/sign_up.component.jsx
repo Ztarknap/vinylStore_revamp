@@ -1,11 +1,17 @@
 import "./sign_up.styles.scss"
 import { useNavigate } from "react-router-dom";
 import { setToken, getToken } from "../../utils/auth.util";
+import { useDispatch } from 'react-redux';
+import { setCurrentUser } from "../../store/user/user.action";
+
 export const SignUp = () => {
+    
+    const dispatch = useDispatch();
+
+
     const navigate = useNavigate();
     const signupClickHandler = async (event) => {
         event.preventDefault();
- 
 
         const [email, password] = event.target;
         const obj = {
@@ -25,8 +31,12 @@ export const SignUp = () => {
             const data = await res.json();
             console.log('got the dataaa ', data)
             if(data.status == 0) {
-                
-                setToken(data.token);
+                const currentUser = {
+                    email: email.value,
+                    token: data.token,
+                }
+                dispatch(setCurrentUser(currentUser));
+
                 alert('Registration succesfull, redirecting...')
                 navigate("/home", { replace: true});
             }

@@ -29,6 +29,7 @@ function App() {
 
   useEffect(()=> {
     const unsubscribe = onAuthStateChangedListener((user) => {
+      console.log(' user google ', user);      
         dispatch(setCurrentUser(user));
  
     });

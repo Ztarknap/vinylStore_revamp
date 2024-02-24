@@ -18,7 +18,8 @@ router.post('/signup', async(req,res) => {
     let hashedPwd = await bcrypt.hash(req.body.password, salt)
     let newUser = new userModel({email: req.body.email, password: hashedPwd});
     try { 
-    let response = await newUser.save();
+    var response = await newUser.save();
+    console.log('user created ' , hashedPwd,' ', response);
     }
     catch (error) {
         console.log(error.message);
@@ -31,7 +32,6 @@ router.post('/signup', async(req,res) => {
         )
         return;
     }
-    console.log('user created ' , hashedPwd,' ', response);
     const token = createToken(response._id, response.email);
     res.send(
         {   status: 0,
@@ -39,7 +39,7 @@ router.post('/signup', async(req,res) => {
             token: token
         }
     )
-    res.send(response);
+     
 
 })
 
@@ -57,13 +57,23 @@ router.post('/signin',async(req,res) => {
             const token = createToken(userData._id, userData.email)
             res.send(
                 {
+                    status: 0,
                     message: "Signed in",
                     token: token
                 }
             )
         }
         else {
-            res.send('Wrong password');
+            res.send(
+            {
+                status: 1,
+                message: "Wrong password",
+                token: token,
+
+            }    
+            )
+                
+                 
         }
          
     }

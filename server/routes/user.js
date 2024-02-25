@@ -4,7 +4,7 @@ const bcrypt =  require('bcrypt');
 
 const userModel = require('../models/user.js');
 
-const createToken = require('../utils/auth.util');
+const {createToken} = require('../utils/auth.util');
  
 
 const handlErrorDB = (err) => {

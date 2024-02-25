@@ -1,6 +1,5 @@
 import "./sign_up.styles.scss"
 import { useNavigate } from "react-router-dom";
-import { setToken, getToken } from "../../utils/auth.util";
 import { useDispatch } from 'react-redux';
 import { setCurrentUser } from "../../store/user/user.action";
 

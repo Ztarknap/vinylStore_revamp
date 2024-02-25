@@ -1,14 +1,16 @@
 import { signInGoogle } from "../../utils/firebase.util"
 import { setCurrentUser } from "../../store/user/user.action"
 import { useDispatch } from "react-redux"
-
+import { useNavigate } from "react-router-dom"
 import "./sign_in.styles.scss"
 
 export const SignIn = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const signInGoogleWrap = async() => {
         const {user} = await signInGoogle();
+        navigate("/home", { replace: true});
         
     }
     const signIn = async(event) => {
@@ -35,7 +37,7 @@ export const SignIn = () => {
           dispatch(setCurrentUser(currentUser));
         }
         alert(data.message);
-        
+        navigate("/home", { replace: true});
          
     }
 

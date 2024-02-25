@@ -6,12 +6,29 @@ import {   useSelector } from 'react-redux'
 
 import {CartIcon} from '../../components/cart-icon/cart-icon.component'
 import {CartDropdown} from '../../components/cart/cart-dropdown.component'
-import { signOutUser } from '../../utils/firebase.util'
-import { getToken } from '../../utils/auth.util'
+import { auth} from '../../utils/firebase.util'
+import { persistor } from "../../store/store"
+import { setCurrentUser } from "../../store/user/user.action"
+import { useDispatch } from 'react-redux'
+import { signOut } from 'firebase/auth'
 
 export const Navigation = () => {
     const currentUserEmail = useSelector((state) => state.user.currentUserEmail);
     const isCartOpen = useSelector((state) => state.cart.isCartOpen);
+ 
+    const dispatch = useDispatch();
+  
+ 
+    const signOutUser = async() => 
+    {
+       
+      await signOut(auth);
+      dispatch(setCurrentUser(null));
+      await persistor.purge();
+       
+       
+    }
+
     return(
         <Fragment>
          
@@ -25,7 +42,6 @@ export const Navigation = () => {
           
          <Link to='/sign_up' className='navlink'> Sign up</Link>
          <Link to='/contact' className='navlink'> Contact information </Link>
-         {getToken()}
          {currentUserEmail}
          {/*show purchase history if logged in*/}
          {(currentUserEmail?

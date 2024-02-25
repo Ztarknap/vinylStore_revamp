@@ -14,5 +14,15 @@ const createToken = (id, email) => {
 
     }
 
+const authToken = async(req, res, next) => {
+    try {
+        console.log(req.headers);
+    }
+    catch(err) {
+        console.log('err, ', err);
+    }
+    next();
+}
 
-module.exports = createToken;
+
+module.exports = {createToken, authToken}

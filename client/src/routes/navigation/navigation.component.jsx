@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux'
 import { signOut } from 'firebase/auth'
 
 export const Navigation = () => {
-    const currentUserEmail = useSelector((state) => state.user.currentUserEmail);
+    const email = useSelector((state) => state.user.email);
     const isCartOpen = useSelector((state) => state.cart.isCartOpen);
  
     const dispatch = useDispatch();
@@ -36,15 +36,15 @@ export const Navigation = () => {
         <Link to='/home' className='navlink'> Home </Link>
          <Link to='/shop' className='navlink'> Browse</Link>
          {/*signout if logged, sign in if not */}
-         {(currentUserEmail? 
+         {(email? 
             (<Link onClick={signOutUser} className='navlink'> Sign Out </Link>):
             (<Link to='/sign_in' className='navlink'>  Sign in</Link>) )}
           
          <Link to='/sign_up' className='navlink'> Sign up</Link>
          <Link to='/contact' className='navlink'> Contact information </Link>
-         {currentUserEmail}
+         {email}
          {/*show purchase history if logged in*/}
-         {(currentUserEmail?
+         {(email?
             (<Link to='/purchaseHistory' className='navlink'> Purchase history</Link>):
             '')}
          <CartIcon/>  

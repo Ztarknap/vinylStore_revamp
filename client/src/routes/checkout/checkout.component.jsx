@@ -16,16 +16,13 @@ export const Checkout = () => {
     const [resp, setResp] = useState();
     
     const cartItems = useSelector((state) => {return state.cart.cartItems})
-    const currentUser = useSelector((state) => {return state.user.currentUser})
-    console.log('currentUser ', currentUser);
- 
+    const currentId = useSelector((state) => {return state.user.id})
+     
     const dataSendMake = () => {
+   
         const dataSend= {
         itemList: cartItems,
-        user: {
-            email: currentUser.email,
-            name: currentUser.displayName,
-        },
+        id: currentId,
         deliveryAdress: document.getElementById("deliveryAdress").value
         
         }
@@ -43,19 +40,25 @@ export const Checkout = () => {
         <div>
         <button className="btn-common-primary" onClick={ 
         async () => 
-        {
-         const res = await fetch("/api/purchase/makePurchase", 
-         {
-            method: "POST",
-         headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(dataSendMake()),})
-         const data = await res.json();
-         console.log('got answer ', data);
-         <div class="alert alert-light" role="alert">
-         Succesfully bought, address - {data.deliveryAdress}
-         </div>
-         setResp(data);
-         }}>Confirm</button>
+            {
+                console.log('currentId ,', currentId);
+                if(!currentId) {
+                    alert('You need to be logged in to confirm puchase.');
+                    return;
+                }
+
+            const res = await fetch("/api/purchase/makePurchase", 
+            {
+                method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dataSendMake()),})
+            const data = await res.json();
+            console.log('got answer ', data);
+            <div class="alert alert-light" role="alert">
+            Succesfully bought, address - {data.deliveryAdress}
+            </div>
+            setResp(data);
+            }}>Confirm</button>
         </div>
         </div>
     </div>)

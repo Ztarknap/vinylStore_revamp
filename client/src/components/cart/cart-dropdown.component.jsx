@@ -9,8 +9,8 @@ export const CartDropdown =() => {
     const cartItems = useSelector((state) => state.cart.cartItems )
     return (
         <div className="cart-dropdown">
-            <div className='col'>
-{/* render cart item info for eacth item*/}
+            <div className='item-list'>
+ 
             {cartItems.map((item) => {return <CartItem key={item._id} item = {item}/>})}</div>
         <button id='btn-to-checkout' className='btn-common-primary'> <Link id='link-to-checkout' to='/checkout'> To Checkout </Link></button>
         </div>

@@ -1,25 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+var ObjectId = require('mongodb').ObjectId;
+
 
 let purchaseSchema = new Schema({
     itemList: [{
         type: String,
         required: true
     }],
-    user: {
-        email: {
-            type: String,
-            required: true
-        },
-        name: {
-            type: String,
-            required: true
-        },
-        code: {
-            type: String,
-            default: ''
-        }
+    user_id: {
+        type: ObjectId,
+        required: true
     },
     deliveryAdress: {
         type: String,

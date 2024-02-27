@@ -32,7 +32,9 @@ export const SignIn = () => {
           const currentUser = {
             email: email.value,
             token: data.token,
-            accessToken: null
+            accessToken: null,
+            id: data.id
+
           } 
           dispatch(setCurrentUser(currentUser));
         }

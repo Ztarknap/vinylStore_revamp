@@ -1,9 +1,10 @@
 import { USER_ACTION_TYPES } from "./user.types";
 
 const INITIAL_STATE = {
-    currentUserEmail: null,
-    currentUserToken: null,
-    currentUserTokenGoogle: null
+    email: null,
+    token: null,
+    tokenGoogle: null,
+    id: null
 }
 
 export const userReducer = (state = INITIAL_STATE, action) => {
@@ -15,9 +16,10 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         }
         return {
             ...state,
-            currentUserEmail: payload.email,
-            currentUserToken: payload.token,
-            currentUserTokenGoogle: payload.accessToken,
+            email: payload.email,
+            token: payload.token,
+            tokenGoogle: payload.accessToken,
+            id: payload.id,
         }
         default:
             return state;

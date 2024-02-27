@@ -33,6 +33,7 @@ export const SignUp = () => {
                 const currentUser = {
                     email: email.value,
                     token: data.token,
+                    id: data.id
                 }
                 dispatch(setCurrentUser(currentUser));
 

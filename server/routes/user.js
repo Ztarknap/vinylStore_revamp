@@ -52,14 +52,14 @@ router.post('/signin',async(req,res) => {
     }
     else {
         let pwdCheck = await bcrypt.compare(req.body.password, userData[0].password ).catch(handlErrorDB);
-        console.log(pwdCheck, ' res');
         if (pwdCheck) {
-            const token = createToken(userData._id, userData.email)
+            const token = createToken(userData[0]._id, userData[0].email)
             res.send(
                 {
                     status: 0,
                     message: "Signed in",
-                    token: token
+                    token: token,
+                    id: userData[0]._id
                 }
             )
         }

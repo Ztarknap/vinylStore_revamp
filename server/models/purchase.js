@@ -6,7 +6,7 @@ var ObjectId = require('mongodb').ObjectId;
 
 let purchaseSchema = new Schema({
     itemList: [{
-        type: String,
+        type: ObjectId,
         required: true
     }],
     user_id: {

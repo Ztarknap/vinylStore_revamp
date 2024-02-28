@@ -21,7 +21,6 @@ export const Navigation = () => {
  
     const signOutUser = async() => 
     {
-       
       await signOut(auth);
       dispatch(setCurrentUser(null));
       await persistor.purge();

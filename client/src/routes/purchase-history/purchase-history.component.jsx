@@ -31,8 +31,20 @@ export const PurchaseHistory =() => {
     
     return (
         <div>
-            PurchaseHistory
-            {purchaseList.map((purchase)=> {return (purchase.itemList)})}
+            {purchaseList.map((purchase)=> 
+                
+            { 
+                return (
+            <div>
+            {purchase.map((item) => {
+                return (
+                    item
+                )
+            })}
+
+            </div>
+            )}
+             )}
         </div>
     )
 }

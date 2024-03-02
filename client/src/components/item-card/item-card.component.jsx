@@ -32,7 +32,7 @@ export const ItemCard = ( {item} ) => {
          <span className='item-price col-sm-6'>{price}</span>
          <span className='col-sm-5'></span>
          <span  className='col-sm-1'>
-         <ShoppingIcon className='add-to-cart' onClick={() => dispatch(addToCart(cartItems, item))}></ShoppingIcon>
+         <ion-icon size="large" className='add-to-cart' name="cart-outline" onClick={() => dispatch(addToCart(cartItems, item))}></ion-icon>         
          </span>
          
          </div>

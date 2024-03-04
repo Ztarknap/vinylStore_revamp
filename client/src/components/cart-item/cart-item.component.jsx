@@ -1,13 +1,13 @@
-import { useSelector } from "react-redux";
+import "./cart-item.styles.scss"
 
 export const CartItem = ({item}) => {
     const {name, image, band, genre, price, _id, quantity} = item;
      
     return(
-        <div className="row">
-            <span className="col-sm-6">{name}</span>
-            <span className="col-sm-4"></span>
-            <span className="col-sm-2">{quantity}</span>
+        <div className="cart-item-position">
+            <span className="">{name}</span>
+            <span className="">{quantity}</span>
         </div>
+
     )
 }

@@ -7,11 +7,15 @@
     flex-wrap:wrap;
     align-items: center;
     justify-content: center;
-     
-}
- 
-
-#deliveryAdress {
+    
+    .separator-line{
+        border-top: 1px solid $ColorSecondary;
+        width: 35rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+    
+    #deliveryAdress {
     width:100%;
     margin-bottom:5%;
     background-color: $ColorSecondary;
@@ -24,3 +28,6 @@
     transition: 220ms all ease-in-out;
     margin-top:3%;
 }
+}
+ 
+

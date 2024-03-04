@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import { useState,useEffect } from "react"
-import { CartItem } from "../../components/cart-item/cart-item.component"
+import { CartItemCheckout } from "../../components/cart-item-checkout/cart-item-checkout.component"
 import "./checkout.styles.scss"
 import "../../style-common/elements.styles.scss"
  
@@ -32,8 +32,10 @@ export const Checkout = () => {
     
     return (
     <div className="checkout-info">
+        <div className="separator-line"></div>
         {resp && <PurchaseAlert data = {resp.deliveryAdress}/>}
-        {cartItems.map((item) => {return <CartItem key={item._id} item = {item}/>})} 
+        {cartItems.map((item) => {return <CartItemCheckout key={item._id} item = {item}/>})} 
+        <div className="separator-line"></div>
         <div>
         <label htmlFor="deliveryAdress"> Delivery adress</label> 
         <input type="text" id ="deliveryAdress" className="form-control"></input>

@@ -10,9 +10,11 @@ export const CartDropdown =() => {
     return (
         <div className="cart-dropdown">
             <div className='item-list'>
- 
+
             {cartItems.map((item) => {return <CartItem key={item._id} item = {item}/>})}</div>
+        <div className='btn-block'> 
         <button id='btn-to-checkout' className='btn-common-primary'> <Link id='link-to-checkout' to='/checkout'> To Checkout </Link></button>
+        </div>
         </div>
     )
 }

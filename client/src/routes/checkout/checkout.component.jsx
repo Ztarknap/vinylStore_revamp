@@ -12,14 +12,15 @@ const PurchaseAlert = ({data}) => {
 }
 
 export const Checkout = () => {
-
     const [resp, setResp] = useState();
-    
+ 
+
     const cartItems = useSelector((state) => {return state.cart.cartItems})
     const currentId = useSelector((state) => {return state.user.id})
      
+ 
+
     const dataSendMake = () => {
-   
         const dataSend= {
         itemList: cartItems,
         id: currentId,

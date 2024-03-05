@@ -17,8 +17,12 @@
          
         
     }
-    .navlink:last-child {
-        margin-left:95%;
+    .cart-block{
+        display:flex;
+        flex-grow: 1;
+        justify-content: right;
+         
+         
     }
 
     .current_route{

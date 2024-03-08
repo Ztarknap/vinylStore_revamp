@@ -18,7 +18,7 @@ export const ItemCardDetailed =() => {
             <div> Release date: {releaseDate} </div>
             <div> Genre: {genre} </div>
             <div> {quantAvailable > 0?" Available ":"Sold out"} </div>
-            <button className="btn-common-primary" onClick={() => dispatch(addToCart(cartItems, location.state))}> Add to cart ({price})</button>
+            <button className="btn-common-primary item-card-detailed-add" onClick={() => dispatch(addToCart(cartItems, location.state))}> Add to cart ({price})</button>
             </div>
       
         </div>

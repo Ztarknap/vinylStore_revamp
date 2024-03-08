@@ -34,13 +34,21 @@ router.get('/getPurchaseList', authToken, async(req,res) => {
     let purchaseList =  await purchaseModel.find({user_id: req.body.id});
  
     let purchaseListOutput = await Promise.all(purchaseList.map(async (currentPurchase) => {
-        let currentPurchaseItemNames = await Promise.all(currentPurchase.itemList.map(async(item_id) => {
+        console.log(currentPurchase);
+        let itemList = await Promise.all(currentPurchase.itemList.map(async(item_id) => {
             let itemName = await itemModel.findById(item_id);
  
             return itemName.name;
         }));
+        
+        let purchaseObj= {
+            id: currentPurchase._id,
+            itemList: itemList,
+            deliveryAdress: currentPurchase.deliveryAdress != ''? currentPurchase.deliveryAdress: 'None',
+
+        }
       
-        return currentPurchaseItemNames;
+        return purchaseObj;
         
     }));
     console.log('purchaseListOutput ,', purchaseListOutput);

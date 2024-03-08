@@ -1,0 +1,15 @@
+@import "../../utils/variables_scss.scss";
+ 
+
+.purchase {
+    display: flex;
+    justify-content: center;
+    gap: 26%;
+    .purchase-items {
+        width: 10rem;
+
+    }
+    .purchase-delivery {
+        width: 10rem;
+    }
+}

@@ -1,0 +1,26 @@
+@import "../../utils/variables_scss.scss";
+
+ 
+.separator-line-purchase{
+    border-top: 1px solid $ColorSecondary;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+
+.purchase-header {
+    display: flex;
+    justify-content: center;
+    gap: 26%;
+    margin-bottom: 1%;
+    .purchase-header-name{
+        width: 10rem; 
+    }
+    .purchase-header-delivery{
+        width: 10rem;
+    }
+}
+
+ 

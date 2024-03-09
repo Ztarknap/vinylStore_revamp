@@ -37,22 +37,24 @@ export const Navigation = () => {
         <Fragment>
          
         <div className='navigation-bar'>
+        <div className='navbar-block'> 
         <Link to='/home' className={"navlink " + (navigate.pathname =='/home'?"current_route":"")} > Home </Link>
          <Link to='/shop' className={"navlink " + (navigate.pathname =='/shop'?"current_route":"")}> Browse</Link>
          {/*signout if logged, sign in if not */}
          <Link to='/sign_up' className={"navlink " + (navigate.pathname =='/sign_up'?"current_route":"")}> Sign up</Link>
          <Link to='/contact' className={"navlink " + (navigate.pathname =='/contact'?"current_route":"")}> Contact information </Link>
-         {email}
          {/*show purchase history if logged in*/}
-         {(email?
-            (<Link to='/purchaseHistory' className={"navlink " + (navigate.pathname =='/purchaseHistory'?"current_route":"")}> Purchase history</Link>):
-            '')}
+         {
+            (<Link to='/purchaseHistory' className={"navlink" + (navigate.pathname =='/purchaseHistory'?" current_route":"") + (email?"":" disabled ") }> Purchase history</Link>)}
+            
          {(email? 
             (<Link onClick={signOutUser} className='navlink'> Sign Out </Link>):
-             '')}
+            (<Link to='/sign_in' className={"navlink " + (navigate.pathname =='/sign_in'?"current_route":"")}>  Sign in</Link>))}
+         </div>
          <div className="cart-block">
-         {(email? (<CartIcon/> ):(<Link to='/sign_in' className={"navlink " + (navigate.pathname =='/sign_in'?"current_route":"")}>  Sign in</Link>) )}
-    </div>
+         {(email?(<div className='sign-info'>Signed in as {email}</div>):" Not signed in")}
+         {(email? (<CartIcon/> ):"" )}
+         </div>
          {isCartOpen && <CartDropdown/>}
          </div>
         <Outlet/>

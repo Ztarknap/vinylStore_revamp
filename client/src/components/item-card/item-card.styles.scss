@@ -6,15 +6,15 @@
     justify-content: center;
     align-items:center;
     width: 20%;
-    height: 375px;
+    height: 50vh;
     flex: 0 2 auto;
      
-    margin-left: 10px;
-    margin-right:10px;
-    margin-bottom: 10px;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%;
     overflow:hidden;
-    padding-left:0px;
-    padding-right:0px;
+    padding-left:0%;
+    padding-right:0%;
 
     ion-icon {
         color: $ColorSecondary;
@@ -31,7 +31,7 @@
 .cover-container {
     width: 95%;
     height: 80%;
-    padding-bottom:5px;
+    padding-bottom:1%;
     overflow:hidden;
     
     
@@ -54,13 +54,7 @@
     }
     
 }
-
-.add-to-cart {
-    width:30px;
-    height: 30px;
-   
-
-}
+ 
 
 .shopping-info {
     width:100%;

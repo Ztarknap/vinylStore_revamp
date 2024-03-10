@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon server/index.js"
   },
   "keywords": [],
@@ -29,5 +29,8 @@
     "sass": "^1.69.5",
     "styled-components": "^6.1.1",
     "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }

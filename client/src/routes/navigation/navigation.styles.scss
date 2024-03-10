@@ -1,4 +1,5 @@
-@import "../../utils/variables_scss.scss";
+@import "../../utils/css/variables-styles.scss";
+@import "../../utils/css/common-styles.scss";
 
 .navigation-bar {
  
@@ -6,22 +7,24 @@
     justify-content: center;
     margin-bottom:1%;
     width: 100%;
-     
+    background-color: $ColorSecondary;
+    color: $ColorPrimary;
+    padding-top: 0.5%;
  
     .navlink {
         margin: 0 3%;
         text-decoration: none;
-        color: $ColorSecondary;
+        color: $ColorPrimary;
         width: 8%;
         &:hover  {
-            color: scale-color($ColorSecondary, $lightness: -25%);
+            color: scale-color($ColorPrimary, $lightness: 25%);
         }
          
         
     }
 
     .navbar-block {
-        width:85%;
+        width:75%;
         display:flex;
         
     }
@@ -40,9 +43,10 @@
         color: $ColorAdd;
     }
      
-    .disabled {
-        pointer-events:none;
-        color: scale-color($ColorSecondary, $lightness: -75%);
+
+    .store-name{
+        margin-left: 2%;
+        margin-right: 8%;
     }
 }
 
@@ -53,9 +57,9 @@
     margin-right: 30%;
     
     ion-icon {
-        color: $ColorSecondary;
+        color: $ColorPrimary;
         &:hover {
-            color: scale-color($ColorSecondary, $lightness: -25%);
+            color: scale-color($ColorPrimary, $lightness: 25%);
             cursor: pointer; 
         }
         transition: 220ms all ease-in-out;

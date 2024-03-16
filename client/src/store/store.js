@@ -22,4 +22,4 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = createStore(persistedReducer, undefined, composedEnhancers);
 export const persistor = persistStore(store);
-//export const store = createStore(rootReducer, undefined, composedEnhancers);
+ 

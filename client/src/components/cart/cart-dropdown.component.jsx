@@ -7,6 +7,7 @@ import { CartItem } from '../cart-item/cart-item.component'
 
 export const CartDropdown =() => {
     const cartItems = useSelector((state) => state.cart.cartItems )
+    console.log(' ci',cartItems);
     return (
         <div className="cart-dropdown">
             <div className='item-list'>

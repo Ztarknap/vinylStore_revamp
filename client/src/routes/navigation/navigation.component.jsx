@@ -12,14 +12,12 @@ import { setCurrentUser } from "../../store/user/user.action"
 import { useDispatch } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { signOut } from 'firebase/auth'
-import {useState} from 'react'
 
 export const Navigation = () => {
     const email = useSelector((state) => state.user.email);
     const isCartOpen = useSelector((state) => state.cart.isCartOpen);
     
     const navigate = useLocation();
-    const [currentRoute, setCurrentRoute] = useState();
     const dispatch = useDispatch();
     
     

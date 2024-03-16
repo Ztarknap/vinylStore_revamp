@@ -17,7 +17,6 @@ app.use('/api/purchase', purchaseRoute);
 app.use('/api/user', userRoute)
 
 app.get("/api", (req,res) => {
-    console.log('/api getNew')
     res.json({message: "API"});
 })
 

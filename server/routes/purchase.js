@@ -11,7 +11,6 @@ router.post('/makePurchase', async(req,res) => {
     try {
         let newPurchase = new purchaseModel({itemList: req.body.itemList, user_id: req.body.id, deliveryAdress: req.body.deliveryAdress})
         let response = await newPurchase.save();
-        console.log('saved! ', newPurchase);
         res.send(
             {
                 status: 0,
@@ -34,7 +33,6 @@ router.get('/getPurchaseList', authToken, async(req,res) => {
     let purchaseList =  await purchaseModel.find({user_id: req.body.id});
  
     let purchaseListOutput = await Promise.all(purchaseList.map(async (currentPurchase) => {
-        console.log(currentPurchase);
         let itemList = await Promise.all(currentPurchase.itemList.map(async(item_id) => {
             let itemName = await itemModel.findById(item_id);
  
@@ -51,7 +49,6 @@ router.get('/getPurchaseList', authToken, async(req,res) => {
         return purchaseObj;
         
     }));
-    console.log('purchaseListOutput ,', purchaseListOutput);
     res.send({
         status: 0,
         message: "Success",

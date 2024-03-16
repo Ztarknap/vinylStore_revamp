@@ -1,11 +1,10 @@
 import { useSelector } from "react-redux"
-import { useState,useEffect } from "react"
+import { useState } from "react"
 import { CartItemCheckout } from "../../components/cart-item-checkout/cart-item-checkout.component"
 import "./checkout.styles.scss"
 import "../../style-common/elements.styles.scss"
  
 const PurchaseAlert = ({data}) => {
-     
     return(
     <div className="alert alert-dark purchaseAlert" value> {data} </div>
     )
@@ -14,12 +13,9 @@ const PurchaseAlert = ({data}) => {
 export const Checkout = () => {
     const [resp, setResp] = useState();
  
-
     const cartItems = useSelector((state) => {return state.cart.cartItems})
     const currentId = useSelector((state) => {return state.user.id})
-     
- 
-
+    
     const dataSendMake = () => {
         const dataSend= {
         itemList: cartItems,
@@ -44,7 +40,6 @@ export const Checkout = () => {
         <button className="btn-common-primary" onClick={ 
         async () => 
             {
-                console.log('currentId ,', currentId);
                 if(!currentId) {
                     alert('You need to be logged in to confirm puchase.');
                     return;

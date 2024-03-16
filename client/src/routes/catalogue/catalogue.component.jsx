@@ -4,36 +4,29 @@ import { useEffect } from "react";
 import { Fragment } from "react";
 import { ItemCard } from "../../components/item-card/item-card.component";
 import {SearchForm} from "../../components/search-form/search-form.component"
+import { searchItemsAPI } from "../../api/get-data.api";
 
 export const Catalogue = () => {
     const [catalogueData, setCatalogueData] = useState([]);
     const location = useLocation()
-    const getItemDataAPI =  async (obj) => {
-        const searchParams = new URLSearchParams(obj);
-        const res = await fetch("/api/items/search?"+ searchParams, { headers: {'Content-Type': 'application/json'}});
-        const data = await res.json();
+    const searchItems =  async (obj) => {
+        const data = await searchItemsAPI(obj);
         setCatalogueData(data);
-         
     }
     useEffect(() => {
-        console.log('useEffect');
-        getItemDataAPI(location.state);
+        searchItems(location.state);
     },[location.state])
      
  
     return(
         <Fragment>
         <SearchForm></SearchForm>
-                <div className='items-list'> 
+            <div className='items-list'> 
              {catalogueData.map((obj) => 
              {
-  
                 return (
-                 
-                  <ItemCard key = {obj._id} item = {obj} ></ItemCard>
-                  
+                  <ItemCard key = {obj._id} item = {obj} ></ItemCard> 
                 )
- 
              })
              }
              </div>      

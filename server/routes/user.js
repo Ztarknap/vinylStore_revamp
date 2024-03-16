@@ -13,13 +13,11 @@ const handlErrorDB = (err) => {
 }
 
 router.post('/signup', async(req,res) => {
-    console.log('req ', req.body)
     let salt = await bcrypt.genSalt(10);
     let hashedPwd = await bcrypt.hash(req.body.password, salt)
     let newUser = new userModel({email: req.body.email, password: hashedPwd});
     try { 
     var response = await newUser.save();
-    console.log('user created ' , hashedPwd,' ', response);
     }
     catch (error) {
         console.log(error.message);

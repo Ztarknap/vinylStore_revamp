@@ -13,6 +13,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #1C1F1B;
   color: #C9C0A5;
+  --toastify-text-color-dark: #C9C0A5;
+  --toastify-color-dark: #1C1F1B;
+  --toastify-color-progress-dark: #C9C0A5;
 }
 
 code {

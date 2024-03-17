@@ -9,6 +9,7 @@ const {authToken} = require('../utils/auth.util');
 
 router.post('/makePurchase', async(req,res) => {
     try {
+        console.log('req ', req.body);
         let newPurchase = new purchaseModel({itemList: req.body.itemList, user_id: req.body.id, deliveryAdress: req.body.deliveryAdress})
         let response = await newPurchase.save();
         res.send(
@@ -18,7 +19,8 @@ router.post('/makePurchase', async(req,res) => {
             }
         )
     }
-    catch {
+    catch(err) {
+        console.log('err', err);
         res.send(
             {
                 status: 1,

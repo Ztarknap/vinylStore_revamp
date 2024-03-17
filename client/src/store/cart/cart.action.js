@@ -49,3 +49,7 @@ export const removeFromCart = (cartItems, itemToRemove) => {
 export const setCartIsOpen = (isCartOpen) => {
     return createAction(CART_ACTION_TYPES.SET_CART_IS_OPEN, !isCartOpen);
 }
+
+export const clearCart = () => {
+    return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, [])
+}

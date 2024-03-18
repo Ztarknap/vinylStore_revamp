@@ -13,14 +13,13 @@ export const ItemCardDetailed =() => {
         <div className="item-card-detailed-block">
             <div className="item-card-detailed-image" style={{backgroundImage:`url(${image})`}}></div>
             <div className="item-card-detailed-description">
-            <div><h1>{name}</h1></div>
-            <div><h1>{band}</h1></div>
-            <div> Release date: {releaseDate} </div>
-            <div> Genre: {genre} </div>
-            <div> {quantAvailable > 0?" Available ":"Sold out"} </div>
-            <button className="btn-common-primary item-card-detailed-add" onClick={() => dispatch(addToCart(cartItems, location.state))}> Add to cart ({price})</button>
+                <div><h1>{name}</h1></div>
+                <div><h1>{band}</h1></div>
+                <div> Release date: {releaseDate} </div>
+                <div> Genre: {genre} </div>
+                <div> {quantAvailable > 0?" Available ":"Sold out"} </div>
+                <button className="btn-common-primary item-card-detailed-add" onClick={() => dispatch(addToCart(cartItems, location.state))}> Add to cart ({price})</button>
             </div>
-      
         </div>
     )
 }

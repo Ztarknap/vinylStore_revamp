@@ -1,7 +1,9 @@
 import { signInGoogle } from "../../utils/firebase.util"
 import { setCurrentUser } from "../../store/user/user.action"
+import { signInAPI } from "../../api/post-data.api"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import {ToastContainer,toast} from 'react-toastify'
 import "./sign_in.styles.scss"
 
 export const SignIn = () => {
@@ -16,18 +18,11 @@ export const SignIn = () => {
     const signIn = async(event) => {
         event.preventDefault();
         const [email, password] = event.target;
-        const obj = {
+        const objUser = {
             email: email.value,
             password: password.value
         }
-        let res = await fetch("api/user/signin", {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(obj),
-            
-        });
-        const data = await res.json();
-        console.log('ret data ', data);
+        const data = await signInAPI(objUser);
         if (data.status == 0) {
           const currentUser = {
             email: email.value,
@@ -37,15 +32,22 @@ export const SignIn = () => {
 
           } 
           dispatch(setCurrentUser(currentUser));
+          navigate("/home", { replace: true});
         }
-        alert(data.message);
-        navigate("/home", { replace: true});
+        else {
+            toast("Wrong login or password", {
+                theme: "dark"
+            });
+        }
          
     }
 
     return (
          
         <div className="sign-in-group">
+                    <div>
+        <ToastContainer />
+        </div>
         <form onSubmit={(event) => signIn(event)} >
             <label htmlFor="signinEmail">Email</label> 
             <input type="email" id="signinEmail" name="email" className="input-field form-control input-field-primary"></input>

@@ -9,6 +9,7 @@ import { clearCart, setCartIsOpen } from "../../store/cart/cart.action"
 import "./checkout.styles.scss"
 import "../../style-common/elements.styles.scss"
 
+ 
 
 export const Checkout = () => {
     const dispatch = useDispatch();
@@ -41,10 +42,11 @@ export const Checkout = () => {
         const data = await makePurchaseAPI(purchaseDataMake());
         if (data.status == 0) {
             toast("Purchase succesfull, redirecting", {
-                theme: "dark"
+                theme: "dark",
+                onClose: () => { navigate("/purchaseHistory", { replace: true})}
             });
             dispatch(clearCart());
-            navigate("/purchaseHistory", { replace: true});
+            document.getElementById('deliveryAdress').value = '';
 
         }
         else {

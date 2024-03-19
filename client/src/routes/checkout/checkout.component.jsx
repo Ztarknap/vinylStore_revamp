@@ -61,18 +61,18 @@ export const Checkout = () => {
     return (
     <div className="checkout-info">
         <div>
-        <ToastContainer />
+            <ToastContainer />
         </div>
         <div className="separator-line"></div>
         {cartItems.map((item) => {return <CartItemCheckout key={item._id} item = {item}/>})} 
         <div className="separator-line"></div>
         <div>
-        <label htmlFor="deliveryAdress"> Delivery adress</label> 
-        <input type="text" id ="deliveryAdress" className="form-control"></input>
-        <div>
-        <button className="btn-common-primary" onClick={ 
-        async () => { makePurchase();}}>Confirm</button>
-        </div>
+            <label htmlFor="deliveryAdress"> Delivery adress</label> 
+            <input type="text" id ="deliveryAdress" className="form-control"></input>
+            <div>
+                <button className="btn-common-primary" onClick={ 
+                async () => { makePurchase();}}>Confirm</button>
+            </div>
         </div>
     </div>)
 }

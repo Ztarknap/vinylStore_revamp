@@ -22,13 +22,13 @@ export const Catalogue = () => {
         <Fragment>
         <SearchForm></SearchForm>
             <div className='items-list'> 
-             {catalogueData.map((obj) => 
-             {
-                return (
-                  <ItemCard key = {obj._id} item = {obj} ></ItemCard> 
-                )
-             })
-             }
+                {catalogueData.map((obj) => 
+                {
+                    return (
+                    <ItemCard key = {obj._id} item = {obj} ></ItemCard> 
+                    )
+                })
+                }
              </div>      
         </Fragment>
     )

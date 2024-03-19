@@ -15,7 +15,7 @@ export const SignIn = () => {
         navigate("/home", { replace: true});
         
     }
-    const signIn = async(event) => {
+    const signInClickEvent = async(event) => {
         event.preventDefault();
         const [email, password] = event.target;
         const objUser = {
@@ -35,7 +35,7 @@ export const SignIn = () => {
           navigate("/home", { replace: true});
         }
         else {
-            toast("Wrong login or password", {
+            toast(data.message, {
                 theme: "dark"
             });
         }
@@ -45,20 +45,19 @@ export const SignIn = () => {
     return (
          
         <div className="sign-in-group">
-                    <div>
-        <ToastContainer />
-        </div>
-        <form onSubmit={(event) => signIn(event)} >
-            <label htmlFor="signinEmail">Email</label> 
-            <input type="email" id="signinEmail" name="email" className="input-field form-control input-field-primary"></input>
-            
-            <label htmlFor="signinPwd">Password</label>
-            <input type="password" id="signinPwd" name="password" className="input-field form-control input-field-primary"></input>
-            <div className="sign-in-btn">
-            <button type="submit" className="btn-common-primary"> Sign in</button>
-            <button onClick={signInGoogleWrap} className="btn-common-primary">Sign in with Google</button>
+            <div>
+            <ToastContainer />
             </div>
-        </form>
+            <form onSubmit={(event) => signInClickEvent(event)} >
+                <label htmlFor="signinEmail">Email</label> 
+                <input type="email" id="signinEmail" name="email" className="input-field form-control input-field-primary"></input>
+                <label htmlFor="signinPwd">Password</label>
+                <input type="password" id="signinPwd" name="password" className="input-field form-control input-field-primary"></input>
+                <div className="sign-in-btn">
+                    <button type="submit" className="btn-common-primary"> Sign in</button>
+                    <button onClick={signInGoogleWrap} className="btn-common-primary">Sign in with Google</button>
+                </div>
+            </form>
         </div>
  
     )

@@ -1,7 +1,7 @@
 import "./cart-item.styles.scss"
 
 export const CartItem = ({item}) => {
-    const {name, image, band, genre, price, _id, quantity} = item;
+    const {name, quantity} = item;
      
     return(
         <div className="cart-item-position">

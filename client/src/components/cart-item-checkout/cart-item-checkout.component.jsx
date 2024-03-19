@@ -1,7 +1,7 @@
 import "./cart-item-checkout.styles.scss"
 
 export const CartItemCheckout = ({item}) => {
-    const {name, image, band, genre, price, _id, quantity} = item;
+    const {name, quantity} = item;
      
     return(
         <div className="cart-item-checkout-position">

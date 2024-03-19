@@ -12,9 +12,10 @@ export const CategoryItem = ({category}) => {
     <div className='category-container'>
         
         <div className='background-image' onClick={() => {searchGenre(name)}} style={{backgroundImage:`url(${img})`}}>
- 
         </div>
-        <div className='category-body-container'><h1>{name}</h1> </div>
+        <div className='category-body-container'>
+            <h1>{name}</h1> 
+        </div>
 
     </div>)
 }

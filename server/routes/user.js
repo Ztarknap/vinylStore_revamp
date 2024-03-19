@@ -20,7 +20,6 @@ router.post('/signup', async(req,res) => {
     var response = await newUser.save();
     }
     catch (error) {
-        console.log(error.message);
         res.send(
             {
                status: 1,
@@ -43,15 +42,23 @@ router.post('/signup', async(req,res) => {
 
 router.post('/signin',async(req,res) => {
     console.log('req ', req.body);
+    let token = ''
+
     let userData = await userModel.find({email: req.body.email})
     if (userData.length <= 0) {
-        console.log('email not found');
-        res.send('Email not found');
+        res.send(
+            {
+                status: 1,
+                message: "Email not found",
+                token: token,
+                id: ''
+            }
+        )
     }
     else {
         let pwdCheck = await bcrypt.compare(req.body.password, userData[0].password ).catch(handlErrorDB);
         if (pwdCheck) {
-            const token = createToken(userData[0]._id, userData[0].email)
+            let token = createToken(userData[0]._id, userData[0].email)
             res.send(
                 {
                     status: 0,

@@ -1,10 +1,12 @@
 import './category-item.styles.scss'
 import { useNavigate } from "react-router-dom";
+import {CategoryItemProps} from '../../utils/ts_types'
 
-export const CategoryItem = ({category}) => {
+
+export const CategoryItem = ({category}: CategoryItemProps) => {
     const {name, img} = category;
     const navigate = useNavigate();
-    const searchGenre = (genre) => {
+    const searchGenre = (genre: string) => {
         navigate("/catalogue", { replace: true, state: {genre: genre} });
     }
  

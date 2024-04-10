@@ -1,6 +1,15 @@
 import "./cart-item.styles.scss"
+import {CartItemProps} from '../../utils/ts_types'
 
-export const CartItem = ({item}) => {
+/*
+type Item = {
+    cartItems : [],
+    isCartOpen: boolean
+}*/ 
+
+ 
+
+export const CartItem = ({item}: CartItemProps) => {
     const {name, quantity} = item;
      
     return(

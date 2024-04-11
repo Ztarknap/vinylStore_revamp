@@ -1,5 +1,8 @@
- import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { setCartIsOpen } from '../../store/cart/cart.action';
+//import { IRootState } from "../../store/root-reducer"
+
+
 export const CartIcon =() =>  {
 
     const dispatch = useDispatch();

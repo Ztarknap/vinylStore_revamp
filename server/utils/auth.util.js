@@ -38,6 +38,7 @@ const authToken = async(req, res, next) => {
     
     }
     catch(err) {
+        console.log(err);
         res.send(
             {   status: 2,
                 message: "Invalid token"

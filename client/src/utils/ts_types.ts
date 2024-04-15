@@ -1,45 +1,69 @@
-export type Item = {
+export type ItemType = {
     _id: string,
     name: string,
     quantity: number
 }
 
  
- 
-export type Category = {
+export type CategoryType = {
     id: string,
     name: string,
     img: string
 }
 
-export type ItemDetailed = {
+export type ItemInfoType = {
     name: string,
-    image: string,
     band: string,
-    ganere: string,
+    quantAvailable: number,
     price: string,
     releaseDate: string,
-    quantAvailable: number,
+    genre: string,
+    image: string,
     _id: string 
 }
 
-export type DirectoryProps = {
-    categories: Category[]
+export type SearchParamsType = {
+    genre: string,
+    name: string,
+    band: string
 }
-export type Purchase = {
+export type PurchaseType = {
     itemList: string[],
-    user_id: string,
+    id: string,
     deliveryAdress: string
 }
 
-export type CategoryItemProps = {
-    category: Category
+
+export type UserType = {
+    email: string
+    token: string,
+    accessToken: string | null,
+    id: string
+} | null
+
+
+
+
+
+
+ 
+export type DirectoryPropsType = {
+    categories: CategoryType[]
+}
+ 
+
+export type CategoryItemPropsType = {
+    category: CategoryType
 }
 
-export type CartItemProps = {
-    item: Item
+export type CartItemPropsType = {
+    item: ItemType
 }
 
-export type PurchaseProps = {
-    purchase: Purchase;
+export type PurchasePropsType = {
+    purchase: PurchaseType;
+}
+
+export type ItemInfoPropsType = {
+    item: ItemInfoType;
 }

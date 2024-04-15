@@ -1,8 +1,8 @@
 import { createAction } from "../../utils/reducer/reducer.utils"
 import { CART_ACTION_TYPES } from "./cart.types"
-
+import {ItemType} from '../../utils/ts_types'
 //wrapper functions for actions
-export const addToCartWrap = (cartItems, itemToAdd) => {
+export const addToCartWrap = (cartItems:ItemType[], itemToAdd:ItemType) => {
     const existingCartItem = cartItems.find(
         (cartItem) => cartItem._id == itemToAdd._id)
      
@@ -17,7 +17,7 @@ export const addToCartWrap = (cartItems, itemToAdd) => {
      return   [...cartItems, {...itemToAdd, quantity: 1}] 
 }
 
-export const removeFromCartWrap = (cartItems, itemToRemove) => {
+export const removeFromCartWrap = (cartItems:ItemType[], itemToRemove:ItemType) => {
     const existingCartItem = cartItems.find(
         (cartItem) => cartItem._id == itemToRemove._id)
         
@@ -38,15 +38,15 @@ export const removeFromCartWrap = (cartItems, itemToRemove) => {
      
 }
 
-export const addToCart = (cartItems, itemToAdd) => {
+export const addToCart = (cartItems:ItemType[], itemToAdd:ItemType) => {
     return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, addToCartWrap(cartItems, itemToAdd));
 }
 
-export const removeFromCart = (cartItems, itemToRemove) => {
+export const removeFromCart = (cartItems:ItemType[], itemToRemove:ItemType) => {
     return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, removeFromCartWrap(cartItems, itemToRemove));
 }
 
-export const setCartIsOpen = (isCartOpen) => {
+export const setCartIsOpen = (isCartOpen:boolean) => {
     return createAction(CART_ACTION_TYPES.SET_CART_IS_OPEN, !isCartOpen);
 }
 

@@ -4,6 +4,7 @@ import { signInAPI } from "../../api/post-data.api"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import {ToastContainer,toast} from 'react-toastify'
+import { IRootState } from "../../store/root-reducer"
 import "./sign_in.styles.scss"
 
 export const SignIn = () => {
@@ -15,9 +16,10 @@ export const SignIn = () => {
         navigate("/home", { replace: true});
         
     }
-    const signInClickEvent = async(event) => {
+    const signInClickEvent = async(event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const [email, password] = event.target;
+        const email =  event.currentTarget.elements[0] as HTMLInputElement;
+        const password =  event.currentTarget.elements[1] as HTMLInputElement;
         const objUser = {
             email: email.value,
             password: password.value

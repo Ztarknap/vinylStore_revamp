@@ -5,11 +5,13 @@ import { Fragment } from "react";
 import { ItemCard } from "../../components/item-card/item-card.component";
 import {SearchForm} from "../../components/search-form/search-form.component"
 import { searchItemsAPI } from "../../api/get-data.api";
+import {SearchParamsType, ItemInfoType} from '../../utils/ts_types'
 
 export const Catalogue = () => {
     const [catalogueData, setCatalogueData] = useState([]);
     const location = useLocation()
-    const searchItems =  async (obj) => {
+    console.log('location.state ', location.state);
+    const searchItems =  async (obj:SearchParamsType) => {
         const data = await searchItemsAPI(obj);
         setCatalogueData(data);
     }
@@ -22,7 +24,7 @@ export const Catalogue = () => {
         <Fragment>
         <SearchForm></SearchForm>
             <div className='items-list'> 
-                {catalogueData.map((obj) => 
+                {catalogueData.map((obj: ItemInfoType) => 
                 {
                     return (
                     <ItemCard key = {obj._id} item = {obj} ></ItemCard> 

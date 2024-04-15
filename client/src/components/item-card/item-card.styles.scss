@@ -16,7 +16,7 @@
     padding-left:0%;
     padding-right:0%;
 
-    ion-icon {
+    .shop-icon {
         color: $ColorSecondary;
         &:hover {
             color: scale-color($ColorSecondary, $lightness: -25%);

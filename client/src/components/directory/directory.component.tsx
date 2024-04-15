@@ -1,8 +1,8 @@
 import {CategoryItem} from '../category-item/category-item.component'
 import './directory.styles.scss'
-import {DirectoryProps} from '../../utils/ts_types'
+import {DirectoryPropsType} from '../../utils/ts_types'
 
-export const Directory = ({categories} : DirectoryProps) => {
+export const Directory = ({categories} : DirectoryPropsType) => {
      
     return(
     <div className='categories-container'>

@@ -12,10 +12,11 @@ import { setCurrentUser } from "../../store/user/user.action"
 import { useDispatch } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { signOut } from 'firebase/auth'
+import { IRootState } from "../../store/root-reducer"
 
 export const Navigation = () => {
-    const email = useSelector((state) => state.user.email);
-    const isCartOpen = useSelector((state) => state.cart.isCartOpen);
+    const email = useSelector((state:IRootState) => state.user.email);
+    const isCartOpen = useSelector((state:IRootState) => state.cart.isCartOpen);
     
     const navigate = useLocation();
     const dispatch = useDispatch();
@@ -47,7 +48,7 @@ export const Navigation = () => {
                 (<Link to='/purchaseHistory' className={"navlink" + (navigate.pathname =='/purchaseHistory'?" current_route":"") + (email?"":" invisible ") }> Purchase history</Link>)}
                 
             {(email? 
-                (<Link onClick={signOutUser} className='navlink'> Sign Out </Link>):
+                (<a onClick={signOutUser} className='navlink'> Sign Out </a>):
                 (<Link to='/sign_in' className={"navlink " + (navigate.pathname =='/sign_in'?"current_route":"")}>  Sign in</Link>))}
             </div>
           <div className="cart-block">

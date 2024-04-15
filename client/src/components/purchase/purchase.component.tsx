@@ -1,7 +1,7 @@
 import "./purchase.styles.scss"
-import {PurchaseProps} from "../../utils/ts_types"
+import {PurchasePropsType} from "../../utils/ts_types"
 
-export const Purchase = ({purchase}: PurchaseProps) => {
+export const Purchase = ({purchase}: PurchasePropsType) => {
     return(
         <div>
             <div className="purchase">  

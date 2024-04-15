@@ -6,28 +6,31 @@ import 'react-toastify/dist/ReactToastify.css';
 import { CartItemCheckout } from "../../components/cart-item-checkout/cart-item-checkout.component"
 import { makePurchaseAPI } from "../../api/post-data.api"
 import { clearCart, setCartIsOpen } from "../../store/cart/cart.action"
+import { IRootState } from "../../store/root-reducer"
+import {ItemType} from "../../utils/ts_types"
 import "./checkout.styles.scss"
 import "../../style-common/elements.styles.scss"
+
 
  
 
 export const Checkout = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const cartItems = useSelector((state) => {return state.cart.cartItems})
-    const isCartOpen = useSelector((state) => {return state.cart.isCartOpen})
-    const currentId = useSelector((state) => {return state.user.id})
+    const cartItems = useSelector((state:IRootState) => {return state.cart.cartItems})
+    const isCartOpen = useSelector((state:IRootState) => {return state.cart.isCartOpen})
+    const currentId = useSelector((state:IRootState) => {return state.user.id})
 
     useEffect(() => {
     dispatch(setCartIsOpen(isCartOpen))
     }, [])
     
     const purchaseDataMake = () => {
-        const cartItemsIds = cartItems.map((elem) => {return elem._id})
+        const cartItemsIds = cartItems.map((elem:ItemType) => {return elem._id})
         const dataSend= {
         itemList: cartItemsIds,
         id: currentId,
-        deliveryAdress: document.getElementById("deliveryAdress").value
+        deliveryAdress: (document.getElementById("deliveryAdress") as HTMLInputElement).value
         
         }
         return dataSend;
@@ -46,8 +49,9 @@ export const Checkout = () => {
                 onClose: () => { navigate("/purchaseHistory", { replace: true})}
             });
             dispatch(clearCart());
-            document.getElementById('deliveryAdress').value = '';
-
+            if (document.getElementById('deliveryAdress') != null) {
+            (document.getElementById('deliveryAdress') as HTMLInputElement).value = '';
+            }
         }
         else {
             toast("Error purchasing, please try again", {
@@ -64,7 +68,7 @@ export const Checkout = () => {
             <ToastContainer />
         </div>
         <div className="separator-line"></div>
-        {cartItems.map((item) => {return <CartItemCheckout key={item._id} item = {item}/>})} 
+        {cartItems.map((item:ItemType) => {return <CartItemCheckout key={item._id} item = {item}/>})} 
         <div className="separator-line"></div>
         <div>
             <label htmlFor="deliveryAdress"> Delivery adress</label> 

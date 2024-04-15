@@ -1,7 +1,7 @@
 import "./cart-item-checkout.styles.scss"
-import {CartItemProps} from '../../utils/ts_types'
+import {CartItemPropsType} from '../../utils/ts_types'
 
-export const CartItemCheckout = ({item} : CartItemProps) => {
+export const CartItemCheckout = ({item} : CartItemPropsType) => {
     const {name, quantity} = item;
      
     return(

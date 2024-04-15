@@ -4,11 +4,12 @@ import { useState } from "react";
 import { Purchase } from "../../components/purchase/purchase.component";
 import { getPurchaseListAPI } from "../../api/get-data.api";
 import "./purchase-history.styles.scss"
-
+import { IRootState } from "../../store/root-reducer"
+import { PurchaseType } from "../../utils/ts_types";
 
 export const PurchaseHistory =() => {
     const [purchaseList, setPurchaseList] = useState([]);
-    const token = useSelector((state) => state.user.token);
+    const token = useSelector((state:IRootState) => state.user.token);
 
     const getPurchaseList = async () => { 
         const data = await getPurchaseListAPI(token);
@@ -31,7 +32,7 @@ export const PurchaseHistory =() => {
                     <div className="purchase-header-delivery"> Delivery address</div>
                 </div>
                 <div className="separator-line-purchase"></div> 
-                {purchaseList.map((purchase)=>   
+                {purchaseList.map((purchase:PurchaseType)=>   
                 { return (
                     <div>
                         {<Purchase key={purchase.id} purchase = {purchase}/>}

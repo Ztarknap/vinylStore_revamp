@@ -10,10 +10,11 @@ export const SignUp = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const signUpClickHandler = async (event) => {
+    const signUpClickHandler = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        const [email, password] = event.target;
+        const email =  event.currentTarget.elements[0] as HTMLInputElement;
+        const password =  event.currentTarget.elements[1] as HTMLInputElement;
         const objUser = {
             email: email.value,
             password: password.value
@@ -24,6 +25,7 @@ export const SignUp = () => {
             const currentUser = {
                 email: email.value,
                 token: data.token,
+                accessToken: null,
                 id: data.id
                 }
             dispatch(setCurrentUser(currentUser));

@@ -1,12 +1,13 @@
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {addToCart} from '../../store/cart/cart.action'
+import { IRootState } from "../../store/root-reducer"
 import './item-card-detailed.styles.scss'
 
 export const ItemCardDetailed =() => {
     const location = useLocation()
     const dispatch = useDispatch();
-    const cartItems = useSelector((state) => state.cart.cartItems )
+    const cartItems = useSelector((state:IRootState) => state.cart.cartItems )
 
     const {name, image, band, genre, price, releaseDate, quantAvailable} = location.state;
     return (

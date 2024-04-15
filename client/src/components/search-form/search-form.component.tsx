@@ -1,12 +1,17 @@
 import { useNavigate} from "react-router-dom";
 import "./search-form.styles.scss"
 
+
 export const SearchForm = () => {
     const navigate = useNavigate();
-    const handleSearchClick = async(event) => {
+    const handleSearchClick = async(event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const [genre, name, band] = event.target;
-        navigate("/catalogue", { replace: true, state: {genre: genre.value, name: name.value, band: band.value} });
+ 
+        const genre =  event.currentTarget.elements[0] as HTMLInputElement;
+        const name =  event.currentTarget.elements[1] as HTMLInputElement;
+        const band =  event.currentTarget.elements[2] as HTMLInputElement;
+ 
+        navigate("/catalogue", { replace: true, state: {genre: genre.value, name: name.value, band: band.value} }); 
     }
     return (
     <div className="searchBlock">

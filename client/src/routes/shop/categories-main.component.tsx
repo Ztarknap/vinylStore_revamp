@@ -3,12 +3,12 @@ import { ItemCard } from '../../components/item-card/item-card.component';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategories } from '../../store/categories/categories.action';
 import './categories-main.styles.scss'
-
- 
+import { IRootState } from "../../store/root-reducer"
+import {ItemInfoType} from "../../utils/ts_types"
 
 export const CategoriesMain = () => {
     const genresList = ['Rock','Pop','Jazz','Classical','Hip_hop'];
-    const categoriesData = useSelector((state) =>  state.categories.categoriesData )
+    const categoriesData = useSelector((state: IRootState) =>  state.categories.categoriesData )
     const dispatch = useDispatch();
     useEffect(() => {
          
@@ -28,7 +28,7 @@ export const CategoriesMain = () => {
                 <h1>{genre}</h1> 
                 </span>
                 <div className='items-list'> 
-             {categoriesData.map((obj) => 
+             {categoriesData.map((obj:ItemInfoType) => 
              {
               if (genre === obj.genre) 
               {

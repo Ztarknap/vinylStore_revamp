@@ -22,13 +22,13 @@ import { ItemCardDetailed } from './routes/item-card-detailed/item-card-detailed
 
 function App() {
 
-
+/*
   useEffect(()=> {
     const unsubscribe = onAuthStateChangedListener((user) => { 
  
     });
         return unsubscribe;
-  }); 
+  }); */
 
   return (
      <Routes>

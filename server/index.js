@@ -3,9 +3,9 @@ const path = require('path');
 
 const mongoose = require('mongoose');
 
-const itemRoute = require('./routes/items.js');
-const purchaseRoute = require('./routes/purchase.js')
-const userRoute = require('./routes/user.js')
+const itemRoute = require('./routes/items.ts');
+const purchaseRoute = require('./routes/purchase.ts')
+const userRoute = require('./routes/user.ts')
 
 const app = express();
 

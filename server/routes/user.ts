@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const bcrypt =  require('bcrypt');
 
-const userModel = require('../models/user.js');
+const userModel = require('../models/user.ts');
 
-const {createToken} = require('../utils/auth.util');
+const {createToken} = require('../utils/auth.util.ts');
  
 
 const handlErrorDB = (err) => {

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const itemModel = require('../models/item.js');
+const itemModel = require('../models/item.ts');
 
 router.get('/', async (req,res) => {
     let items = await itemModel.find({});

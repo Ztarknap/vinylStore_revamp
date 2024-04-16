@@ -1,4 +1,4 @@
-const {createToken} = require('../utils/auth.util');
+const {createToken} = require('../utils/auth.util.ts');
 const jwt = require("jsonwebtoken");
 
 const testId = '123'

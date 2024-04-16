@@ -1,5 +1,5 @@
 import { USER_ACTION_TYPES } from "./user.types";
-
+import { AnyAction } from 'redux'
 const INITIAL_STATE = {
     email: null,
     token: null,
@@ -7,7 +7,7 @@ const INITIAL_STATE = {
     id: null
 }
 
-export const userReducer = (state = INITIAL_STATE, action) => {
+export const userReducer = (state = INITIAL_STATE, action = ({} as AnyAction)) => {
     const {type, payload} = action;
     switch(type) {
         case USER_ACTION_TYPES.SET_CURRENT_USER: 

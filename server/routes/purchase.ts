@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const purchaseModel = require('../models/purchase.js');
-const itemModel = require('../models/item.js')
+const purchaseModel = require('../models/purchase.ts');
+const itemModel = require('../models/item.ts')
 
 
-const {authToken} = require('../utils/auth.util');
+const {authToken} = require('../utils/auth.util.ts');
 
 router.post('/makePurchase', async(req,res) => {
     try {

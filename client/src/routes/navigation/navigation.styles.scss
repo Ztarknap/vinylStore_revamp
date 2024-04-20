@@ -16,6 +16,7 @@
         text-decoration: none;
         color: $ColorPrimary;
         width: 8%;
+        cursor: pointer;
         &:hover  {
             color: scale-color($ColorPrimary, $lightness: 25%);
         }
@@ -56,13 +57,13 @@
     margin-left:auto;
     margin-right: 30%;
     
-    ion-icon {
-        color: $ColorPrimary;
+     
+    color: $ColorPrimary;
         &:hover {
             color: scale-color($ColorPrimary, $lightness: 25%);
             cursor: pointer; 
         }
         transition: 220ms all ease-in-out;
         
-    }
+    
 }

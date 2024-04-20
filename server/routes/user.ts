@@ -7,19 +7,19 @@ const userModel = require('../models/user.ts');
 const {createToken} = require('../utils/auth.util.ts');
  
 
-const handlErrorDB = (err) => {
+const handlErrorDB = (err:unknown) => {
     console.log('DB error');
     console.log(err);
 }
 
-router.post('/signup', async(req,res) => {
+router.post('/signup', async(req:any,res:any) => {
     let salt = await bcrypt.genSalt(10);
     let hashedPwd = await bcrypt.hash(req.body.password, salt)
     let newUser = new userModel({email: req.body.email, password: hashedPwd});
     try { 
     var response = await newUser.save();
     }
-    catch (error) {
+    catch (error: any) {
         res.send(
             {
                status: 1,
@@ -40,7 +40,7 @@ router.post('/signup', async(req,res) => {
 
 })
 
-router.post('/signin',async(req,res) => {
+router.post('/signin',async(req:any,res:any) => {
     console.log('req ', req.body);
     let token = ''
 

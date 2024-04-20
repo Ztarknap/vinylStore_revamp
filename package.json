@@ -2,10 +2,10 @@
   "name": "vinylstore_revamp",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "jest",
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/index.ts"
   },
   "keywords": [],
   "author": "",

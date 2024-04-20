@@ -14,7 +14,7 @@ let userSchema = new Schema({
     }
 })
 //middleware for email validation
-userSchema.post('save', function(error, doc, next) {
+userSchema.post('save', function(error:any, doc:any, next:any) {
     if (error.name === 'MongoServerError' && error.code === 11000) {
       next(new Error('Email already exists'));
     } else {

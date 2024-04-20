@@ -3,11 +3,18 @@ const router = express.Router();
 
 const purchaseModel = require('../models/purchase.ts');
 const itemModel = require('../models/item.ts')
-
+ 
 
 const {authToken} = require('../utils/auth.util.ts');
 
-router.post('/makePurchase', async(req,res) => {
+type PurchaseType = {
+    itemList: string[],
+    _id: string,
+    deliveryAdress: string
+}
+ 
+ 
+router.post('/makePurchase', async(req:any,res:any) => {
     try {
         console.log('req ', req.body);
         let newPurchase = new purchaseModel({itemList: req.body.itemList, user_id: req.body.id, deliveryAdress: req.body.deliveryAdress})
@@ -29,13 +36,13 @@ router.post('/makePurchase', async(req,res) => {
         )
     }
 })
-
-router.get('/getPurchaseList', authToken, async(req,res) => {
+ 
+router.get('/getPurchaseList', authToken, async(req:any,res:any) => {
  
     let purchaseList =  await purchaseModel.find({user_id: req.body.id});
  
-    let purchaseListOutput = await Promise.all(purchaseList.map(async (currentPurchase) => {
-        let itemList = await Promise.all(currentPurchase.itemList.map(async(item_id) => {
+    let purchaseListOutput = await Promise.all(purchaseList.map(async (currentPurchase:PurchaseType) => {
+        let itemList = await Promise.all(currentPurchase.itemList.map(async(item_id:string) => {
             let itemName = await itemModel.findById(item_id);
  
             return itemName.name;
@@ -57,6 +64,6 @@ router.get('/getPurchaseList', authToken, async(req,res) => {
         purchaseList: purchaseListOutput
     })
 
-})
+}) 
 
 module.exports = router;

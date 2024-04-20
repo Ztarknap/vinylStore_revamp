@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 const userModel = require('../models/user.ts');
 
-const createToken = (id, email) => {
+const createToken = (id:string, email:string) => {
     const token = jwt.sign(
         {
             id: id,
@@ -16,7 +16,7 @@ const createToken = (id, email) => {
     }
 
     //callback to check the cred
-const authToken = async(req, res, next) => {
+const authToken = async(req:any, res:any, next:any) => {
     try {
         //receiving and verifing tokens
         const token = await req.headers.authorization.split(" ")[1];

@@ -7,7 +7,8 @@
       "strict": true,
       "esModuleInterop": true,
       "skipLibCheck": true,
+      "useUnknownInCatchVariables": true,
       "moduleResolution": "node16"
     },
-    "include": ["models", "routes", "utils", "index.js"]
+    "include": ["models", "routes", "utils", "index.ts"]
   }

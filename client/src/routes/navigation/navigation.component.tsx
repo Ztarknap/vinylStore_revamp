@@ -13,11 +13,13 @@ import { useDispatch } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { signOut } from 'firebase/auth'
 import { IRootState } from "../../store/root-reducer"
+import { useState } from 'react'
+import IonIcon from '@reacticons/ionicons';
 
 export const Navigation = () => {
     const email = useSelector((state:IRootState) => state.user.email);
     const isCartOpen = useSelector((state:IRootState) => state.cart.isCartOpen);
-    
+    const [isMenuOpen, setMenu] = useState(false)
     const navigate = useLocation();
     const dispatch = useDispatch();
     
@@ -37,7 +39,11 @@ export const Navigation = () => {
           <div className='store-name'>
             <h1>VS</h1>
           </div>
-          <div className='navbar-block'> 
+          <div className='menu-collapse' onClick={() => {setMenu(!isMenuOpen)}}>
+           <IonIcon size="large" className='menu-collapse-icon' name="menu-outline"></IonIcon>
+          </div>
+          {(isMenuOpen) && 
+          <div className='navbar-block' id='navbar-responsive'> 
             <Link to='/home' className={"navlink " + (navigate.pathname =='/home'?"current_route":"")} > Home </Link>
             <Link to='/shop' className={"navlink " + (navigate.pathname =='/shop'?"current_route":"")}> Browse</Link>
             {/*signout if logged, sign in if not */}
@@ -50,11 +56,11 @@ export const Navigation = () => {
             {(email? 
                 (<a onClick={signOutUser} className='navlink'> Sign Out </a>):
                 (<Link to='/sign_in' className={"navlink " + (navigate.pathname =='/sign_in'?"current_route":"")}>  Sign in</Link>))}
-            </div>
+            </div>}
           <div className="cart-block">
             {(email?(<div className='sign-info'>{email}</div>):" Not signed in")}
             {(email? (<CartIcon/> ):"" )}
-          </div>
+          </div> 
           {isCartOpen && <CartDropdown/>}
          </div>
         <Outlet/>

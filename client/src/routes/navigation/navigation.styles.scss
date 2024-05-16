@@ -29,14 +29,13 @@
         display:flex;
         
     }
+ 
     .cart-block{
         display:flex;
         flex-grow: 1;
         width: 20%;
         gap: 50%;
-        .login-info{
-             
-        }
+ 
     }
 
 
@@ -49,6 +48,55 @@
         margin-left: 2%;
         margin-right: 8%;
     }
+    .menu-collapse {
+        display: none;
+    }
+    .menu-collapse-icon {
+ 
+         
+        color: $ColorSecondary;
+            &:hover {
+                color: scale-color($ColorPrimary, $lightness: 25%);
+                cursor: pointer; 
+            }
+            transition: 220ms all ease-in-out;
+            
+        
+    }
+}
+@media screen and (max-width: 850px) {
+    .navigation-bar {
+        background-color: #1C1F1B;
+        .menu-collapse {
+            display: block;
+        }
+        .cart-block {
+                color: $ColorSecondary;
+  
+        }
+    }
+    .store-name {
+        color:$ColorSecondary;
+    }
+ 
+}
+
+#navbar-responsive {
+    .navlink 
+    {
+        color: $ColorSecondary;
+         width: 100%;
+         &:hover  {
+            color: scale-color($ColorPrimary, $lightness: 25%);
+            cursor: pointer; 
+        }
+    }
+    display:flex;
+    flex-direction: column;
+    border: 1px solid $ColorSecondary;
+    border-radius: .25rem;
+    width: 20%;
+
 }
 
 .shop-cart {
@@ -67,3 +115,4 @@
         
     
 }
+ 
